@@ -1,0 +1,48 @@
+<view class="container">
+
+  <view class="header">
+    <view class="shop-name">{{shop.name}}</view>
+    <view class="shop-logo">
+      <image src="{{shop.logo}}" />
+    </view>
+  </view>
+
+  <view class="contacts">
+    <view class="row row-phone" catchtap="onPhoneTap">
+      <view class="icon">
+        <image src="/images/icon/phone_blue.png" />
+      </view>
+      <view class="text">{{shop.phone}}</view>
+      <view class="icon">
+        <image src="/images/icon/enter.png" />
+      </view>
+    </view>
+    <view class="row row-address" catchtap="onAddressTap">
+      <view class="icon">
+        <image src="/images/icon/map-pin_blue.png" />
+      </view>
+      <view class="text">{{shop.address}}</view>
+      <view class="icon">
+        <image src="/images/icon/enter.png" />
+      </view>
+    </view>
+  </view>
+
+  <view class="shop-images">
+    <view class="shop-image">
+      <image src="{{shop.images[0]}}" />
+    </view>
+    <view class="shop-thumbs">
+      <view class="shop-thumb">
+        <image src="{{shop.images[1]}}" />
+      </view>
+      <view class="shop-thumb">
+        <image src="{{shop.images[2]}}" />
+      </view>
+      <view class="shop-thumb">
+        <image src="{{shop.images[3]}}" />
+      </view>
+    </view>
+  </view>
+  
+</view>

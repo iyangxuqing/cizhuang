@@ -1,0 +1,47 @@
+<import src="/template/loading/loading.wxml" />
+<template is="loading" data="{{...loading}}" />
+
+<import src="/template/swiperImagesEditor/swiperImagesEditor.wxml" />
+
+<view class="container" wx:if="{{ready}}">
+
+  <view class="homeHeadImages">
+    <template is="swiper-images-editor" data="{{...swiperImagesEditor, youImageMode}}" />
+  </view>
+
+  <view class="homeSlogan">
+    <input value="{{homeSlogan}}" placeholder="输入企业格言标语" bindblur="onHomeSloganBlur" />
+  </view>
+
+  <view class="homeLogo" catchtap="onHomeLogoTap">
+    <image src="{{homeLogo}}" mode="aspectFill" />
+  </view>
+
+  <view class="models">
+    <block wx:for="{{models}}" wx:key="" wx:for-item="model">
+      <view class="model {{moving.sourceIndex==index?'source':''}} {{moving.targetIndex==index?'target':''}}" data-id="{{model.id}}" catchtap="onModelTap">
+        <view class="model-editor" wx:if="{{model.id==deleteId}}" data-id="{{model.id}}" catchtap="onModelDel">
+          <image src="/images/icon/delete.png" />
+        </view>
+        <view class="model-image" data-id="{{model.id}}" catchlongpress="onModelLongPress">
+          <image src="{{model.images[0] ? model.images[0] + youImageMode : ''}}" />
+        </view>
+        <view class="model-title" data-id="{{model.id}}" data-index="{{index}}" catchtouchstart="touchstart" catchtouchmove="touchmove" catchtouchend="touchend">{{model.title}}</view>
+      </view>
+    </block>
+    <view class="model model-new" data-id="" catchtap="onModelTap">
+      <view class="model-image">
+        <image src="/images/icon/plus.png" />
+      </view>
+    </view>
+    <view class="model moving" style="left:{{moving.left}}px;top:{{moving.top}}px;display:{{moving.display}}">
+      <view class="model-image">
+        <image src="{{moving.model.images[0] ? moving.model.images[0] + youImageMode : ''}}" />
+      </view>
+      <view class="model-title">
+        <text>{{moving.model.title}}</text>
+      </view>
+    </view>
+  </view>
+
+</view>

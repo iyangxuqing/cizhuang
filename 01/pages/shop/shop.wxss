@@ -1,0 +1,70 @@
+
+
+.container {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-bottom: 200rpx;
+  background-color: #f8fafc;
+  background-clip: content-box;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 300rpx;
+  padding: 40rpx;
+}
+
+.shop-name {
+  font-size: 60rpx;
+}
+
+.shop-logo {
+  width: 110rpx;
+  height: 110rpx;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  min-height: 110rpx;
+  border-bottom: 1px solid #ddd;
+}
+
+.row:first-child {
+  border-top: 1px solid #ddd;
+}
+
+.row .icon {
+  flex-shrink: 0;
+  width: 100rpx;
+  height: 100rpx;
+  padding: 26rpx;
+}
+
+.row .text {
+  flex-grow: 1;
+}
+
+.shop-images {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30rpx;
+}
+
+.shop-image {
+  width: 100%;
+  height: 520rpx;
+}
+
+.shop-thumbs {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30rpx;
+}
+
+.shop-thumb {
+  width: 210rpx;
+  height: 210rpx;
+}

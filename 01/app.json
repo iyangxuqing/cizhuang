@@ -1,0 +1,71 @@
+{
+  "pages": [
+
+    "pages/model/modelList/modelList",
+    "pages/model/modelDetail/modelDetail",
+
+    "pages/case/caseList/caseList",
+    "pages/case/caseDetail/caseDetail",
+
+    "pages/shop/shop",
+    "pages/wode/wode/wode",
+    "pages/wode/addressEditor/addressEditor",
+    
+    "pages/admin/admin/admin",
+    "pages/admin/models/models",
+    "pages/admin/model/model",
+    "pages/admin/cases/cases",
+    "pages/admin/case/case"
+  ],
+
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f4f4f4",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black"
+  },
+
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#11bbff",
+    "backgroundColor": "#f4f4f4",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/model/modelList/modelList",
+        "text": "首页",
+        "iconPath": "images/tab/01/home.png",
+        "selectedIconPath": "images/tab/02/home.png"
+      },
+      {
+        "pagePath": "pages/case/caseList/caseList",
+        "text": "身边案例",
+        "iconPath": "images/tab/01/case.png",
+        "selectedIconPath": "images/tab/02/case.png"
+      },
+      {
+        "pagePath": "pages/shop/shop",
+        "text": "店铺信息",
+        "iconPath": "images/tab/01/shop.png",
+        "selectedIconPath": "images/tab/02/shop.png"
+      },
+      {
+        "pagePath": "pages/wode/wode/wode",
+        "text": "我的",
+        "iconPath": "images/tab/01/user.png",
+        "selectedIconPath": "images/tab/02/user.png"
+      },
+      {
+        "pagePath": "pages/admin/admin/admin",
+        "text": "后台管理",
+        "iconPath": "images/tab/01/user.png",
+        "selectedIconPath": "images/tab/02/user.png"
+      }
+    ]
+  },
+
+  "networkTimeout": {
+    "request": 10000
+  }
+
+}

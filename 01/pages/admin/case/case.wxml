@@ -1,0 +1,60 @@
+<view class="anli">
+
+  <view class="subdistrict">
+    <input value="{{anli.subdistrict}}" placeholder="输入小区名称或说明" data-id="{{anli.id}}" bindblur="onSubdistrictBlur" />
+  </view>
+  <view class="houseAddress">
+    <input value="{{anli.houseAddress}}" placeholder="输入房屋地址或说明" data-id="{{anli.id}}" bindblur="onHouseAddressBlur" />
+  </view>
+  <view class="process-add">
+    <view class="process-add-text">新增装修笔记</view>
+    <view class="process-add-icon" catchtap="onProcessAdd">
+      <image src="/images/icon/delete.png" />
+    </view>
+  </view>
+
+  <view class="process">
+    <block wx:for="{{anli.process}}" wx:key="" wx:for-index="pIndex">
+      <view class="item">
+        
+        <view class="item-head">
+          <view class="process-time {{editId=='process-'+pIndex+'-time'?'editing':''}}" data-type="time" data-value="{{item.time}}" data-process-index="{{pIndex}}" catchtap="onTimeTap">
+            <text class="{{item.time?'':'empty'}}">{{item.time || '输入时间或说明...'}}</text>
+          </view>
+          <view class="process-del" data-process-index="{{pIndex}}" catchtap="onProcessDel">
+            <image src="/images/icon/delete.png" />
+          </view>
+        </view>
+
+        <view class="process-desc {{editId=='process-'+pIndex+'-desc'?'editing':''}}" data-type="desc" data-value="{{item.desc}}" data-process-index="{{pIndex}}" catchtap="onDescTap">
+          <text class="{{item.desc?'':'empty'}}">{{item.desc || '输入装修描述...'}}</text>
+        </view>
+
+        <view class="process-images">
+          <block wx:for="{{item.images}}" wx:key="" wx:for-item="image">
+            <view class="image" data-process-index="{{pIndex}}" data-image-index="{{index}}" catchtap="onImageTap" catchlongpress="onImageLongPress">
+              <view class="image-del" data-process-index="{{pIndex}}" data-image-index="{{index}}" catchtap="onImageDel" wx:if="{{delImageIndex=='del-'+pIndex+'-'+index}}">
+                <image src="/images/icon/delete.png" />
+              </view>
+              <image src="{{image}}" />
+            </view>
+          </block>
+          <block wx:if="{{item.images.length<9}}">
+            <view class="image image-camera" catchtap="onImageTap" data-process-index="{{pIndex}}" data-image-index="-1">
+              <image src="/images/icon/camera.png" />
+            </view>
+          </block>
+        </view>
+
+      </view>
+    </block>
+  </view>
+
+</view>
+
+<template is="editor" data="{{...editor, platform}}" />
+<template name="editor">
+  <view class="editor {{type}} {{platform}}" style="top:{{top}}px;left:{{left}}px">
+    <textarea auto-height focus="{{focus}}" cursor-spacing="10" value="{{value}}" data-type="{{type}}" data-index="{{index}}" placeholder="{{placeholder}}" bindblur="onEditorBlur" />
+  </view>
+</template>

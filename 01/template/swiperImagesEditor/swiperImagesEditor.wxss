@@ -30,9 +30,14 @@
 .swiper-image-add {
   width: calc(100% - 60rpx);
   margin: 0 auto;
-  background-image: url(/images/icon/camera.png);
-  background-repeat: no-repeat;
-  background-size: 140rpx;
-  background-position: center;
   border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.swiper-image-add image{
+  width: 140rpx;
+  height: 140rpx;
+}
+

@@ -14,6 +14,7 @@
       <block wx:if="{{images.length < maxImagesLength}}">
         <swiper-item>
           <view class="swiper-image swiper-image-add" data-index="-1" catchtap="{{onImageTap}}">
+            <image src="/images/icon/camera.png" />
           </view>
         </swiper-item>
       </block>

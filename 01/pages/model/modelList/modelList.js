@@ -77,15 +77,23 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    Models.getModels({ nocache: true })
-      .then(function (models) {
-        this.setData({
-          modelHead,
-          models,
-          ready: true
+    let page = this
+    Models.getModels({ nocache: true }).then(function (models) {
+      Resource.get({ nocache: true }).then(function (resource) {
+        let homeHeadImages = resource['homeHeadImages']
+        homeHeadImages = JSON.parse(homeHeadImages) || []
+        let homeSlogan = resource['homeSlogan']
+        let homeLogo = resource['homeLogo']
+        page.setData({
+          homeHeadImages: homeHeadImages,
+          homeSlogan: homeSlogan,
+          homeLogo: homeLogo,
+          models: models,
+          ready: true,
         })
         wx.stopPullDownRefresh()
-      }.bind(this))
+      })
+    })
   },
 
   /**

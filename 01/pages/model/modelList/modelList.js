@@ -1,7 +1,7 @@
 let config = require('../../../utils/config.js')
-import { http } from '../../../utils/http.js'
+import { Loading } from '../../../template/loading/loading.js'
 import { Models } from '../../../utils/models.js'
-import { modelHead } from '../model.data.js'
+import { Resource } from '../../../utils/resource.js'
 
 Page({
 
@@ -9,29 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imagesUrl: config.imagesUrl,
     youImageMode: config.youImageMode,
-  },
-
-  onImageTap: function (e) {
-  },
-
-  onImageLongPress: function (e) {
-    let type = e.currentTarget.dataset.type
-    let index = e.currentTarget.dataset.index
-    wx.chooseImage({
-      count: 1,
-      sizeType: 'compressed',
-      success: function (res) {
-        let source = res.tempFilePaths[0]
-        let target = type + '-' + index
-        http.cosUpload({
-          source,
-          target,
-        }).then(function (res) {
-        })
-      },
-    })
   },
 
   onItemTap: function (e) {
@@ -45,13 +23,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let page = this
+    page.loading = new Loading()
+
+    page.loading.show()
     Models.getModels().then(function (models) {
-      this.setData({
-        modelHead,
-        models,
-        ready: true
+      Resource.get().then(function (resource) {
+        let homeHeadImages = resource['homeHeadImages']
+        homeHeadImages = JSON.parse(homeHeadImages) || []
+        let homeSlogan = resource['homeSlogan']
+        let homeLogo = resource['homeLogo']
+        page.setData({
+          homeHeadImages: homeHeadImages,
+          homeSlogan: homeSlogan,
+          homeLogo: homeLogo,
+          models: models,
+          ready: true,
+        })
+        page.loading.hide()
       })
-    }.bind(this))
+    })
   },
 
   /**

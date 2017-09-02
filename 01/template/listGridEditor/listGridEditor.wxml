@@ -1,0 +1,28 @@
+<template name="list-grid-editor">
+  <view class="list">
+    <block wx:for="{{items}}" wx:key="">
+      <view class="item {{moving.sourceIndex==index?'source':''}} {{moving.targetIndex==index?'target':''}}" data-id="{{item.id}}" catchtap="{{onItemTap}}">
+        <view class="item-del" wx:if="{{item.id==delItemId}}" data-id="{{item.id}}" catchtap="{{onItemDel}}">
+          <image src="/images/icon/delete.png" />
+        </view>
+        <view class="item-thumb" data-id="{{item.id}}" catchlongpress="{{onItemLongPress}}">
+          <image src="{{item.images[0] ? item.images[0] + youImageMode : ''}}" />
+        </view>
+        <view class="item-title" data-id="{{item.id}}" data-index="{{index}}" catchtouchstart="{{touchstart}}" catchtouchmove="{{touchmove}}" catchtouchend="{{touchend}}">{{item.title}}</view>
+      </view>
+    </block>
+    <view class="item item-add" data-id="" catchtap="{{onItemTap}}">
+      <view class="item-thumb">
+        <image src="/images/icon/plus.png" />
+      </view>
+    </view>
+    <view class="item moving" style="left:{{moving.left}}px;top:{{moving.top}}px;display:{{moving.display}}">
+      <view class="item-thumb">
+        <image src="{{moving.item.images[0] ? moving.item.images[0] + youImageMode : ''}}" />
+      </view>
+      <view class="item-title">
+        <text>{{moving.item.title}}</text>
+      </view>
+    </view>
+  </view>
+</template>

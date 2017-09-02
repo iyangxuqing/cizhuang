@@ -1,70 +1,9 @@
 @import '/template/swiperImagesEditor/swiperImagesEditor.wxss';
+@import '/template/listGridEditor/listGridEditor.wxss';
 
 page {
   padding-left: 30rpx;
   padding-right: 30rpx;
-}
-
-.models {
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  padding-bottom: 200rpx;
-}
-
-.model {
-  width: 210rpx;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  position: relative;
-  padding-bottom: 20rpx; 
-}
-
-.model:nth-of-type(3n+2) {
-  margin-left: 30rpx;
-  margin-right: 30rpx;
-}
-
-.model.moving {
-  position: absolute;
-  opacity: 0.5;
-}
-
-.model.target {
-  opacity: 0.5;
-}
-
-.model-image {
-  width: 210rpx;
-  height: 210rpx;
-  border: 1px solid #ddd;
-}
-
-.model-title {
-  width: 210rpx;
-  height: 60rpx;
-  line-height: 60rpx;
-  text-align: center;
-  font-size: 0.8rem;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.model-new .model-image {
-  padding: 20rpx;
-}
-
-.model-editor {
-  position: absolute;
-  width: 80rpx;
-  height: 80rpx;
-  top: 0rpx;
-  right: -8rpx;
-  padding: 16rpx;
-  background-color: rgba(255, 255, 255, 0.4);
-  background-clip: content-box;
 }
 
 .homeHeadImages {

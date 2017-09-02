@@ -2,7 +2,7 @@
   <view class="list">
     <block wx:for="{{items}}" wx:key="">
       <view class="item {{moving.sourceIndex==index?'source':''}} {{moving.targetIndex==index?'target':''}}" data-id="{{item.id}}" catchtap="{{onItemTap}}">
-        <view class="item-del" wx:if="{{item.id==delItemId}}" data-id="{{item.id}}" catchtap="{{onItemDel}}">
+        <view class="item-del" data-id="{{item.id}}" catchtap="{{onItemDel}}" wx:if="{{item.id==delItemId}}">
           <image src="/images/icon/delete.png" />
         </view>
         <view class="item-thumb" data-id="{{item.id}}" catchlongpress="{{onItemLongPress}}">

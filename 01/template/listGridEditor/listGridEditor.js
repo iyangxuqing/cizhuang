@@ -11,7 +11,8 @@ let methods = {
     let row = Math.floor(index / 2)
     let col = index % 2
     let offsetLeft = col * 165
-    let offsetTop = row * 180
+    if (col == 1) offsetLeft = col * 165 + 15
+    let offsetTop = row * 195
     this.touchPositionX = x - offsetLeft
     this.touchPositionY = y - offsetTop
 
@@ -23,7 +24,6 @@ let methods = {
     page.setData({
       'listGridEditor.delItemId': -1
     })
-    console.log(e)
   },
 
   touchmove: function (e) {
@@ -32,7 +32,7 @@ let methods = {
     let left = x - this.touchPositionX
     let top = y - this.touchPositionY
 
-    let row = Math.round(top / 180)
+    let row = Math.round(top / 195)
     let col = Math.round(left / 165)
     if (col < 0) col = 0
     if (col > 1) col = 1
@@ -55,9 +55,11 @@ let methods = {
     let moving = page.data.listGridEditor.moving
     let sourceIndex = moving.sourceIndex
     let targetIndex = moving.targetIndex
-    let item = items[sourceIndex]
-    items.splice(sourceIndex, 1)
-    items.splice(targetIndex, 0, item)
+    if (sourceIndex != targetIndex && targetIndex > -1) {
+      let item = items[sourceIndex]
+      items.splice(sourceIndex, 1)
+      items.splice(targetIndex, 0, item)
+    }
     moving.display = 'none'
     moving.sourceIndex = -1
     moving.targetIndex = -1
@@ -99,12 +101,12 @@ let methods = {
     let page = getCurrentPages().pop()
     let id = e.currentTarget.dataset.id
     page.setData({
-      'listGridEditor.delItemId': id
+      'listGridEditor.delItemId': id,
     })
     clearTimeout(this.delItemTimer)
     this.delItemTimer = setTimeout(function () {
       page.setData({
-        'listGridEditor.delItemId': -1
+        'listGridEditor.delItemId': -1,
       })
     }, 5000)
   }
@@ -116,7 +118,7 @@ export class ListGridEditor {
   constructor(options = {}) {
     this.touchPositionX = 0
     this.touchPositionY = 0
-    this.itemDelTimer = null
+    this.delItemTimer = null
     this.onItemTap = options.onItemTap
     this.onItemDel = options.onItemDel
     this.onItemSort = options.onItemSort

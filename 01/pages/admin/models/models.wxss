@@ -1,15 +1,9 @@
+@import '/template/loading/loading.wxss';
 @import '/template/swiperImagesEditor/swiperImagesEditor.wxss';
 @import '/template/listGridEditor/listGridEditor.wxss';
 
-page {
-  padding-left: 30rpx;
-  padding-right: 30rpx;
-}
-
 .homeHeadImages {
   height: 480rpx;
-  margin-left: -30rpx;
-  margin-right: -30rpx;
 }
 
 .homeSlogan {
@@ -25,8 +19,11 @@ page {
 
 .homeLogo {
   height: 100rpx;
-  margin-left: -30rpx;
-  margin-right: -30rpx;
   background-color: #eee;
   margin-bottom: 30rpx;
+}
+
+.models {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
 }

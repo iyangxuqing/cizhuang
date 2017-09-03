@@ -157,6 +157,20 @@ Page({
       })
   },
 
+  onItemTap: function (item) {
+    wx.navigateTo({
+      url: '../case/case?id=' + item.id
+    })
+  },
+
+  onItemDel: function (item) {
+    console.log(item)
+  },
+
+  onItemSort: function (items) {
+    console.log(items)
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -166,7 +180,11 @@ Page({
     this.loadAnlis({
       success: function (anlis) {
         page.listRowsEditor = new ListRowsEditor({
-          items: anlis
+          items: anlis,
+          onItemTap: page.onItemTap,
+          onItemDel: page.onItemDel,
+          onItemSort: page.onItemSort,
+          itemTemplate: 'anli',
         })
         page.setData({
           ready: true

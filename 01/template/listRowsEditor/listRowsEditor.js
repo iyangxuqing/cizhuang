@@ -83,12 +83,12 @@ let methods = {
         break
       }
     }
-    let temp = items[i]
-    if (i > 0) {
-      items[i] = items[i - 1]
-      items[i - 1] = temp
+    let temp = items[index]
+    if (index > 0) {
+      items[index] = items[index - 1]
+      items[index - 1] = temp
     }
-    this.setData({
+    page.setData({
       'listRowsEditor.swipeLeftId': '',
       'listRowsEditor.items': items
     })
@@ -107,12 +107,12 @@ let methods = {
         break
       }
     }
-    let temp = items[i]
-    if (i < items.length - 1) {
-      items[i] = items[i + 1]
-      items[i + 1] = temp
+    let temp = items[index]
+    if (index < items.length - 1) {
+      items[index] = items[Number(index) + 1]
+      items[Number(index) + 1] = temp
     }
-    this.setData({
+    page.setData({
       'listRowsEditor.swipeLeftId': '',
       'listRowsEditor.items': items
     })
@@ -130,8 +130,9 @@ export class ListRowsEditor {
     this.onItemSort = options.onItemSort
 
     let listRowsEditor = {
-      items: options.items || [],
       swipeLeftId: '',
+      items: options.items || [],
+      itemTemplate: options.itemTemplate,
     }
 
     let page = getCurrentPages().pop()

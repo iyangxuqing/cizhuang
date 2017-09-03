@@ -1,6 +1,8 @@
 let config = require('../../../utils/config.js')
 import { Anlis } from '../../../utils/anlis.js'
 
+import { ListRowsEditor } from '../../../template/listRowsEditor/listRowsEditor.js'
+
 let touch = {}
 let app = getApp()
 
@@ -159,15 +161,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let page = this
     app.listener.on('anlis', this.onAnlisUpdate)
     this.loadAnlis({
       success: function (anlis) {
-        this.setData({
-          anlis,
+        page.listRowsEditor = new ListRowsEditor({
+          items: anlis
+        })
+        page.setData({
           ready: true
         })
-      }.bind(this)
+      }
     })
+
+    // this.loadAnlis({
+    //   success: function (anlis) {
+    //     this.setData({
+    //       anlis,
+    //       ready: true
+    //     })
+    //   }.bind(this)
+    // })
   },
 
   /**

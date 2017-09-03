@@ -86,7 +86,12 @@
   background-color: red;
 }
 
-.image {
+.anli {
+  width: 100%;
+  display: flex;
+}
+
+.anli-image {
   width: 300rpx;
   height: 250rpx;
   flex-shrink: 0;
@@ -94,13 +99,12 @@
   border: 1rpx solid #e6e3e4;
 }
 
-.text {
-  width: 100%;
+.anli-text {
+  flex-grow: 1;
   padding-left: 30rpx;
-
 }
 
-.title {
+.anli-title {
   height: 60rpx;
   line-height: 60rpx;
   font-size: 1.1em;
@@ -108,7 +112,7 @@
   overflow: hidden;
 }
 
-.subTitle {
+.anli-subTitle {
   height: 60rpx;
   line-height: 60rpx;
   font-size: 1.0em;
@@ -116,7 +120,7 @@
   overflow: hidden;
 }
 
-.desc {
+.anli-desc {
   min-height: 60rpx;
   font-size: 13px;
   color: #888;
@@ -128,13 +132,13 @@
   margin-top: 10rpx;
 }
 
-.text-foot {
+.anli-text-foot {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
-.time {
+.anli-time {
   font-size: 14px;
   color: #888;
 }

@@ -7,7 +7,9 @@
     </view>
   </view>
 
-  <view class="anlis">
+  <template is="listRowsEditor" data="{{...listRowsEditor, youImageMode}}" />
+
+  <view class="anlis" style="display:none">
     <block wx:for="{{anlis}}" wx:key="" wx:for-item="anli">
       <view class="item anli" data-id="{{anli.id}}" catchtap="onAnliTap" bindtouchstart="touchstart" bindtouchmove="touchmove" bindtouchend="touchend">
 
@@ -44,4 +46,49 @@
       </view>
     </block>
   </view>
+
 </view>
+
+<template name="listRowsEditor">
+  <view class="list">
+    <block wx:for="{{items}}" wx:key="">
+      <view class="item" data-id="{{item.id}}" catchtap="{{onItemTap}}" bindtouchstart="{{touchstart}}" bindtouchmove="{{touchmove}}" bindtouchend="{{touchend}}">
+        <view class="item-inner {{swipeLeftId==item.id?'swipeleft':''}}">
+          <view class="left">
+            <template is="anli" data="{{...item}}" />
+          </view>
+          <view class="right">
+            <view class="sort-up" data-id="{{item.id}}" catchtap="{{onItemSortUp}}">
+              <image src="/images/icon/sort-up-white.png" />
+            </view>
+            <view class="sort-down" data-id="{{item.id}}" catchtap="{{onItemSortDown}}">
+              <image src="/images/icon/sort-down-white.png" />
+            </view>
+            <view class="delete" data-id="{{item.id}}" catchtap="{{onItemDelete}}">
+              <image src="/images/icon/delete-white.png" />
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</template>
+
+<template name="anli">
+  <view class="anli">
+    <view class="anli-image">
+      <image src="{{image}}"></image>
+    </view>
+    <view class="anli-text">
+      <view class="anli-title">{{subdistrict}}</view>
+      <view class="anli-subTitle">{{houseAddress}}</view>
+      <view class="anli-desc"><text>{{desc}}</text></view>
+      <view class="anli-text-foot">
+        <view class="anli-time">{{time}}</view>
+        <view class="praise">
+          <image src="/images/icon/praise.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

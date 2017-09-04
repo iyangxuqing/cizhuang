@@ -1,0 +1,16 @@
+<view class="coupon">
+
+  <view class="coupon-title">
+    <input value="{{coupon.title}}" placeholder="输入优惠券标题" data-id="{{coupon.id}}" bindblur="onTitleBlur" />
+  </view>
+  <view class="coupon-descs">
+    <input value="{{coupon.descs}}" placeholder="输入一句话说明" data-id="{{coupon.id}}" bindblur="onDescsBlur" />
+  </view>
+  <view class="coupon-notes">
+    <input value="{{coupon.notes}}" placeholder="输入使用备注" data-id="{{coupon.id}}" bindblur="onNotesBlur" />
+  </view>
+  <view class="coupon-image {{coupon.image?'':'empty'}}" catchtap="onImageTap">
+    <image src="{{coupon.image ? coupon.image + youImageMode : '/images/icon/camera.png'}}" mode="aspectFill" />
+  </view>
+
+</view>

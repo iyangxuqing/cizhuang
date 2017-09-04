@@ -1,2 +1,3 @@
 <button catchtap="onAdminModelTap">样板房管理</button>
 <button catchtap="onAdminAnliTap" >身边案例管理</button>
+<button catchtap="onAdminCouponTap">优惠券管理</button>

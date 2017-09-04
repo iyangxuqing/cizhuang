@@ -1,19 +1,19 @@
 <template name="listRowsEditor">
   <view class="list">
     <block wx:for="{{items}}" wx:key="">
-      <view class="item" data-id="{{item.id}}" catchtap="{{onItemTap}}" bindtouchstart="{{touchstart}}" bindtouchmove="{{touchmove}}" bindtouchend="{{touchend}}">
+      <view class="item item-{{itemTemplate}}" data-id="{{item.id}}" catchtap="{{onItemTap}}" bindtouchstart="{{touchstart}}" bindtouchmove="{{touchmove}}" bindtouchend="{{touchend}}">
         <view class="item-inner {{swipeLeftId==item.id?'swipeleft':''}}">
-          <view class="left">
-            <template is="{{itemTemplate}}" data="{{...item}}" />
+          <view class="item-left">
+            <template is="{{itemTemplate}}" data="{{...item, youImageMode}}" />
           </view>
-          <view class="right">
-            <view class="sort-up" data-id="{{item.id}}" catchtap="{{onItemSortUp}}">
+          <view class="item-right">
+            <view class="item-sort-up" data-id="{{item.id}}" catchtap="{{onItemSortUp}}">
               <image src="/images/icon/sort-up-white.png" />
             </view>
-            <view class="sort-down" data-id="{{item.id}}" catchtap="{{onItemSortDown}}">
+            <view class="item-sort-down" data-id="{{item.id}}" catchtap="{{onItemSortDown}}">
               <image src="/images/icon/sort-down-white.png" />
             </view>
-            <view class="delete" data-id="{{item.id}}" catchtap="{{onItemDel}}">
+            <view class="item-delete" data-id="{{item.id}}" catchtap="{{onItemDel}}">
               <image src="/images/icon/delete-white.png" />
             </view>
           </view>
@@ -34,10 +34,25 @@
       <view class="anli-desc"><text>{{desc}}</text></view>
       <view class="anli-text-foot">
         <view class="anli-time">{{time}}</view>
-        <view class="praise">
+        <view class="anli-praise">
           <image src="/images/icon/praise.png"></image>
         </view>
       </view>
     </view>
   </view>
+</template>
+
+<template name="coupon">
+      <view class="coupon">
+        <view class="coupon-left">
+          <view class="coupon-image">
+            <image src="{{image ? image + youImageMode : ''}}" mode="aspectFill" />
+          </view>
+        </view>
+        <view class="coupon-right">
+          <view class="coupon-title">{{title}}</view>
+          <view class="coupon-descs">{{descs}}</view>
+          <view class="coupon-notes">{{notes}}</view>
+        </view>
+      </view>
 </template>

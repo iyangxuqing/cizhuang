@@ -29,20 +29,6 @@ let methods = {
     }
   },
 
-  // onSwipeLeft: function (id) {
-  //   let page = getCurrentPages().pop()
-  //   page.setData({
-  //     'listRowsEditor.swipeLeftId': id
-  //   })
-  // },
-
-  // onSwipeRight: function (id) {
-  //   let page = getCurrentPages().pop()
-  //   page.setData({
-  //     'listRowsEditor.swipeLeftId': ''
-  //   })
-  // },
-
   onItemTap: function (e) {
     let page = getCurrentPages().pop()
     let id = e.currentTarget.dataset.id
@@ -68,7 +54,7 @@ let methods = {
       'listRowsEditor.swipeLeftId': '',
       'listRowsEditor.items': items
     })
-    this.onItemDel && this.onItemDel({ id }, items)
+    this.onItemDel && this.onItemDel({ id })
   },
 
   onItemSortUp: function (e) {
@@ -87,12 +73,15 @@ let methods = {
     if (index > 0) {
       items[index] = items[index - 1]
       items[index - 1] = temp
+      this.onItemSort && this.onItemSort(items)
+      for (let i in items) {
+        items[i].sort = i
+      }
     }
     page.setData({
       'listRowsEditor.swipeLeftId': '',
       'listRowsEditor.items': items
     })
-    this.onItemSort && this.onItemSort(items)
   },
 
   onItemSortDown: function (e) {
@@ -111,12 +100,15 @@ let methods = {
     if (index < items.length - 1) {
       items[index] = items[Number(index) + 1]
       items[Number(index) + 1] = temp
+      this.onItemSort && this.onItemSort(items)
+      for (let i in items) {
+        items[i].sort = i
+      }
     }
     page.setData({
       'listRowsEditor.swipeLeftId': '',
       'listRowsEditor.items': items
     })
-    this.onItemSort && this.onItemSort(items)
   },
 
 }

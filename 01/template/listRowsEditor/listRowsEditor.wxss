@@ -3,13 +3,7 @@
 .item {
   display: flex;
   position: relative;
-  padding: 20rpx 0;
   overflow: hidden;
-  border-bottom: 2rpx solid #ccc;
-}
-
-.item:first-child {
-  border-top: 1rpx solid #ddd;
 }
 
 .item-inner {
@@ -20,35 +14,36 @@
 }
 
 .item-inner.swipeleft {
-  transform: translateX(-300rpx);
+  transform: translateX(-310rpx);
 }
 
-.left {
+.item-left {
   width: 690rpx;
   display: flex;
 }
 
-.right {
-  width: 300rpx;
+.item-right {
+  width: 310rpx;
   display: flex;
   align-items: center;
+  padding-left: 10rpx;
 }
 
-.sort-up {
+.item-sort-up {
   width: 100rpx;
   height: 100rpx;
   padding: 30rpx;
   background-color: seagreen;
 }
 
-.sort-down {
+.item-sort-down {
   width: 100rpx;
   height: 100rpx;
   padding: 30rpx;
   background-color: orange;
 }
 
-.delete {
+.item-delete {
   width: 100rpx;
   height: 100rpx;
   padding: 30rpx;
@@ -57,9 +52,19 @@
 
 /* anli Template */
 
+.item-anli {
+  border-bottom: 1px solid #ddd;
+}
+
+.item-anli:first-child {
+  border-top: 1px solid #ddd;
+}
+
 .anli {
   width: 100%;
   display: flex;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
 }
 
 .anli-image {
@@ -114,8 +119,71 @@
   color: #888;
 }
 
-.praise {
+.anli-praise {
   width: 60rpx;
   height: 60rpx;
   padding: 14rpx;
+}
+
+/* coupon Template */
+
+.item-coupon + .item-coupon {
+  margin-top: 30rpx;
+}
+
+.coupon {
+  position: relative;
+  width: 100%;
+  height: 200rpx;
+  border: 2rpx solid #ddd;
+}
+
+.coupon-left {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200rpx;
+  height: 100%;
+  background-color: rgba(92, 176, 226, 0.30);
+}
+
+.coupon-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: calc(100% - 200rpx);
+  height: 100%;
+  margin-left: 200rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  background-color: #fff;
+}
+
+.coupon-image {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.coupon-title {
+  color: #333;
+  font-weight: 600;
+  padding-top: 10rpx;
+  padding-bottom: 20rpx;
+}
+
+.coupon-descs {
+  width: 100%;
+  font-size: 0.9em;
+  padding-bottom: 20rpx;
+  white-space: nowrap;
+  text-overflow: clip;
+  overflow: hidden;
+}
+
+.coupon-notes {
+  font-size: 0.9em;
+  color: #888;
+  padding-bottom: 20rpx;
 }

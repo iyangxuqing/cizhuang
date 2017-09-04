@@ -15,7 +15,9 @@
     "pages/admin/models/models",
     "pages/admin/model/model",
     "pages/admin/cases/cases",
-    "pages/admin/case/case"
+    "pages/admin/case/case",
+    "pages/admin/coupons/coupons",
+    "pages/admin/coupon/coupon"
   ],
 
   "window": {

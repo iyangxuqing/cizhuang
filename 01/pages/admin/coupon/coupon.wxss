@@ -1,0 +1,49 @@
+page {
+  padding: 30rpx 30rpx;
+}
+
+.coupon {
+  padding-bottom: 200rpx;
+}
+
+.coupon-title {
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  padding-left: 20rpx;
+  background-color: #f2f2f2;
+  margin-bottom: 2rpx;
+}
+
+.coupon-descs {
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  padding-left: 20rpx;
+  background-color: #f2f2f2;
+  margin-bottom: 2rpx;
+}
+
+.coupon-notes {
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  padding-left: 20rpx;
+  background-color: #f2f2f2;
+  margin-bottom: 2rpx;
+}
+
+input {
+  width: 100%;
+}
+
+.coupon-image {
+  width: 210rpx;
+  height: 210rpx;
+  border: 1px solid #ddd;
+  margin-top: 30rpx;
+}
+
+.coupon-image.empty {
+  padding: 50rpx;
+}

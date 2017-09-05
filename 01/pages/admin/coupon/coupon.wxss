@@ -6,31 +6,22 @@ page {
   padding-bottom: 200rpx;
 }
 
-.coupon-title {
-  display: flex;
-  align-items: center;
-  height: 100rpx;
+.coupon-label{
+  height: 60rpx;
+  line-height: 60rpx;
   padding-left: 20rpx;
-  background-color: #f2f2f2;
-  margin-bottom: 2rpx;
+  letter-spacing: 20rpx;
+  background-color: #ddd;
 }
 
-.coupon-descs {
+.coupon-value {
   display: flex;
   align-items: center;
   height: 100rpx;
   padding-left: 20rpx;
+  padding-right: 20rpx;
   background-color: #f2f2f2;
-  margin-bottom: 2rpx;
-}
-
-.coupon-notes {
-  display: flex;
-  align-items: center;
-  height: 100rpx;
-  padding-left: 20rpx;
-  background-color: #f2f2f2;
-  margin-bottom: 2rpx;
+  margin-bottom: 20rpx;
 }
 
 input {
@@ -41,7 +32,7 @@ input {
   width: 210rpx;
   height: 210rpx;
   border: 1px solid #ddd;
-  margin-top: 30rpx;
+  margin-top: 20rpx;
 }
 
 .image-camera {

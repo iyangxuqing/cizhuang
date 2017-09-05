@@ -9,7 +9,7 @@
   <template is="userInfo" data="{{...userInfo}}" />
   <template is="mobile" data="{{...mobile}}" />
   <template is="address" data="{{...address}}" />
-  <template is="coupons" data="{{coupons}}" />
+  <template is="coupons" data="{{coupons, youImageMode}}" />
 </view>
 
 <!--  -->
@@ -31,15 +31,15 @@
   <view class="coupons">
     <block wx:for="{{coupons}}" wx:key="">
       <view class="coupon">
-        <view class="label">
-          <view class="image">
-            <image src="{{item.image}}"></image>
+        <view class="coupon-left">
+          <view class="coupon-image">
+            <image src="{{item.image ? item.image + youImageMode : ''}}" mode="aspectFill" />
           </view>
         </view>
-        <view class="value">
-          <view class="title">{{item.title}}</view>
-          <view class="subtitle">{{item.descs}}</view>
-          <view class="time">{{item.notes}}</view>
+        <view class="coupon-right">
+          <view class="coupon-title">{{item.title}}</view>
+          <view class="coupon-descs">{{item.descs}}</view>
+          <view class="coupon-notes">{{item.notes}}</view>
         </view>
       </view>
     </block>

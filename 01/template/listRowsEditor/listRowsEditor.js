@@ -61,7 +61,6 @@ let methods = {
     let page = getCurrentPages().pop()
     let id = e.currentTarget.dataset.id
     let items = page.data.listRowsEditor.items
-    let desc = true //倒序
     let index = -1
     for (let i in items) {
       if (items[i].id == id) {
@@ -73,9 +72,15 @@ let methods = {
     if (index > 0) {
       items[index] = items[index - 1]
       items[index - 1] = temp
-      this.onItemSort && this.onItemSort(items)
-      for (let i in items) {
-        items[i].sort = i
+      this.onItemSort && this.onItemSort(items, this.sort)
+      if (this.sort == 'desc') {
+        for (let i in items) {
+          items[i].sort = items.length - i
+        }
+      } else {
+        for (let i in items) {
+          items[i].sort = i
+        }
       }
     }
     page.setData({
@@ -88,7 +93,6 @@ let methods = {
     let page = getCurrentPages().pop()
     let id = e.currentTarget.dataset.id
     let items = page.data.listRowsEditor.items
-    let desc = true //倒序
     let index = -1
     for (let i in items) {
       if (items[i].id == id) {
@@ -100,9 +104,15 @@ let methods = {
     if (index < items.length - 1) {
       items[index] = items[Number(index) + 1]
       items[Number(index) + 1] = temp
-      this.onItemSort && this.onItemSort(items)
-      for (let i in items) {
-        items[i].sort = i
+      this.onItemSort && this.onItemSort(items, this.sort)
+      if (this.sort == 'desc') {
+        for (let i in items) {
+          items[i].sort = items.length - i
+        }
+      } else {
+        for (let i in items) {
+          items[i].sort = i
+        }
       }
     }
     page.setData({
@@ -120,6 +130,7 @@ export class ListRowsEditor {
     this.onItemTap = options.onItemTap
     this.onItemDel = options.onItemDel
     this.onItemSort = options.onItemSort
+    this.sort = options.sort
 
     let listRowsEditor = {
       swipeLeftId: '',

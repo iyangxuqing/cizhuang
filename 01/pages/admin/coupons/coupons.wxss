@@ -30,6 +30,5 @@
 }
 
 .coupons {
-  /* background: #f0eff5; */
   margin-bottom: 400rpx;  
 }

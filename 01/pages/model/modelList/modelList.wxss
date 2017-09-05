@@ -1,7 +1,7 @@
 @import '/template/loading/loading.wxss';
 
 .homeHeadImages {
-  height: 480rpx;
+  height: 400rpx;
 }
 
 .homeHeadImages swiper {
@@ -10,16 +10,14 @@
 }
 
 .homeSlogan {
-  height: 100rpx;
+  height: 80rpx;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .homeLogo {
-  height: 100rpx;
-  margin-left: -30rpx;
-  margin-right: -30rpx;
+  height: 80rpx;
   background-color: #eee;
   margin-bottom: 30rpx;
 }

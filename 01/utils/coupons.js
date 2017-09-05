@@ -31,6 +31,7 @@ function getCouponsSync() {
 
 function getCoupon(id) {
   let coupons = app.coupons
+  console.log(coupons, id)
   for (let i in coupons) {
     if (coupons[i].id == id) {
       return coupons[i]
@@ -74,7 +75,7 @@ function delCoupon(coupon) {
   coupons.splice(index, 1)
 }
 
-function sortCoupon(coupons) {
+function sortCoupon(coupons, desc) {
   for (let i in coupons) {
     if (coupons[i].sort != i) {
       coupons[i].sort = i

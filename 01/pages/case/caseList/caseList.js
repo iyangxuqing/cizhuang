@@ -51,8 +51,8 @@ Page({
     this.loadAnlis({
       success: function (anlis) {
         this.setData({
-          anlis,
-          ready: true
+          ready: true,
+          anlis: anlis,
         })
       }.bind(this)
     })

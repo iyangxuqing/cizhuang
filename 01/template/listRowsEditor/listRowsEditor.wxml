@@ -26,7 +26,7 @@
 <template name="anli">
   <view class="anli">
     <view class="anli-image">
-      <image src="{{image}}"></image>
+      <image src="{{image ? image + youImageMode: ''}}" mode="aspectFill"></image>
     </view>
     <view class="anli-text">
       <view class="anli-title">{{subdistrict}}</view>

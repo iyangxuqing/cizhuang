@@ -49,7 +49,6 @@ Page({
     let page = this
     app.listener.on('coupons', this.onCouponsUpdate)
     Coupons.getCoupons().then(function (coupons) {
-      console.log(coupons)
       page.listRowsEditor = new ListRowsEditor({
         items: coupons,
         onItemTap: page.onItemTap,

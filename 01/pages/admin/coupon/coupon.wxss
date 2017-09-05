@@ -44,6 +44,6 @@ input {
   margin-top: 30rpx;
 }
 
-.coupon-image.empty {
+.image-camera {
   padding: 50rpx;
 }

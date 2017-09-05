@@ -3,7 +3,6 @@ import { Anlis } from '../../../utils/anlis.js'
 
 import { ListRowsEditor } from '../../../template/listRowsEditor/listRowsEditor.js'
 
-let touch = {}
 let app = getApp()
 
 Page({
@@ -12,46 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imagesUrl: config.imagesUrl
-  },
-
-  touchstart: function (e) {
-    touch.id = e.currentTarget.dataset.id
-    touch.x1 = e.touches[0].clientX;
-    touch.y1 = e.touches[0].clientY;
-    touch.t1 = e.timeStamp;
-    touch.x2 = e.touches[0].clientX;
-    touch.y2 = e.touches[0].clientY;
-    touch.t2 = e.timeStamp;
-  },
-
-  touchmove: function (e) {
-    touch.x2 = e.touches[0].clientX;
-    touch.y2 = e.touches[0].clientY;
-    touch.t2 = e.timeStamp;
-  },
-
-  touchend: function (e) {
-    touch.t2 = e.timeStamp
-    let dx = touch.x2 - touch.x1
-    let dy = touch.y2 - touch.y1
-    let dt = touch.t2 - touch.t1
-    if ((Math.abs(dy) < Math.abs(dx) / 2 && dt < 250)) {
-      if (dx < -20) this.onSwipeLeft(touch.id)
-      if (dx > 20) this.onSwipeRight(touch.id)
-    }
-  },
-
-  onSwipeLeft: function (id) {
-    this.setData({
-      swipeLeftId: id
-    })
-  },
-
-  onSwipeRight: function (id) {
-    this.setData({
-      swipeLeftId: ''
-    })
+    youImageMode: config.youImageMode
   },
 
   onAnliAdd: function (e) {
@@ -60,73 +20,14 @@ Page({
     })
   },
 
-  onAnliTap: function (e) {
-    let id = e.currentTarget.dataset.id
-    wx.navigateTo({
-      url: '../case/case?id=' + id
-    })
-  },
-
-  onItemDelete: function (e) {
-    let id = e.currentTarget.dataset.id
-    let anlis = Anlis.del({ id })
-
-    let _anlis = []
-    let length = anlis.length
-    for (let i in anlis) {
-      _anlis[i] = anlis[length - i - 1]
-    }
-    anlis = _anlis
-
-    this.setData({
-      swipeLeftId: '',
-      anlis: anlis
-    })
-  },
-
-  onItemSortUp: function (e) {
-    let id = e.currentTarget.dataset.id
-    let down = true //倒序
-    let anlis = Anlis.sort({ id }, down)
-
-    let _anlis = []
-    let length = anlis.length
-    for (let i in anlis) {
-      _anlis[i] = anlis[length - i - 1]
-    }
-    anlis = _anlis
-
-    this.setData({
-      swipeLeftId: '',
-      anlis: anlis
-    })
-  },
-
-  onItemSortDown: function (e) {
-    let id = e.currentTarget.dataset.id
-    let down = false //倒序
-    let anlis = Anlis.sort({ id }, down)
-
-    let _anlis = []
-    let length = anlis.length
-    for (let i in anlis) {
-      _anlis[i] = anlis[length - i - 1]
-    }
-    anlis = _anlis
-
-    this.setData({
-      swipeLeftId: '',
-      anlis: anlis
-    })
-  },
-
   onAnlisUpdate: function (anlis) {
-    this.loadAnlis({
+    let page = this
+    page.loadAnlis({
       success: function (anlis) {
-        this.setData({
-          anlis
+        page.setData({
+          'listRowsEditor.items': anlis
         })
-      }.bind(this)
+      }
     })
   },
 
@@ -145,14 +46,12 @@ Page({
           anlis[i].image = ''
           if (last.images.length) anlis[i].image = last.images[0]
         }
-
         let _anlis = []
         let length = anlis.length
         for (let i in anlis) {
           _anlis[i] = anlis[length - i - 1]
         }
         anlis = _anlis
-
         options.success && options.success(anlis)
       })
   },
@@ -164,11 +63,11 @@ Page({
   },
 
   onItemDel: function (item) {
-    console.log(item)
+    Anlis.del(item)
   },
 
   onItemSort: function (items) {
-    console.log(items)
+    Anlis.sort(items)
   },
 
   /**
@@ -181,6 +80,7 @@ Page({
       success: function (anlis) {
         page.listRowsEditor = new ListRowsEditor({
           items: anlis,
+          sort: 'desc',
           onItemTap: page.onItemTap,
           onItemDel: page.onItemDel,
           onItemSort: page.onItemSort,
@@ -191,15 +91,6 @@ Page({
         })
       }
     })
-
-    // this.loadAnlis({
-    //   success: function (anlis) {
-    //     this.setData({
-    //       anlis,
-    //       ready: true
-    //     })
-    //   }.bind(this)
-    // })
   },
 
   /**

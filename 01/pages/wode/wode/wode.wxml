@@ -31,16 +31,15 @@
   <view class="coupons">
     <block wx:for="{{coupons}}" wx:key="">
       <view class="coupon">
-        <view class="label {{item.money ? 'withMoney' : ''}}">
+        <view class="label">
           <view class="image">
             <image src="{{item.image}}"></image>
           </view>
-          <view class="money">{{item.money}}</view>
         </view>
         <view class="value">
           <view class="title">{{item.title}}</view>
-          <view class="subtitle">{{item.subtitle}}</view>
-          <view class="time">{{item.time}}</view>
+          <view class="subtitle">{{item.descs}}</view>
+          <view class="time">{{item.notes}}</view>
         </view>
       </view>
     </block>

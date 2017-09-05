@@ -23,7 +23,9 @@ Page({
    */
   onLoad: function (options) {
     let id = options.id
+    console.log(id)
     Models.getModels().then(function (models) {
+      console.log(models)
       let current = -1
       for (let i in models) {
         if (models[i].id == id) {

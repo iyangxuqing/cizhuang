@@ -83,7 +83,8 @@ Page({
       sort: 9999
     }
     if (id) {
-      coupon = Coupons.get()
+      coupon = Coupons.get(id)
+      console.log(id)
     }
     return coupon
   },
@@ -114,6 +115,7 @@ Page({
    */
   onLoad: function (options) {
     let coupon = this.loadCoupon(options.id)
+    console.log(coupon)
     this.setData({
       coupon: coupon
     })

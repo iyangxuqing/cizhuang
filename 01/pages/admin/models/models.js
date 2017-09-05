@@ -18,7 +18,7 @@ Page({
 
   onModelsUpdate: function (models) {
     this.setData({
-      models: models
+      'listGridEditor.items': models
     })
   },
 

@@ -69,51 +69,27 @@ function setAnli(anli, cb) {
 }
 
 function delAnli(anli) {
-  let id = anli.id
-  let anlis = app.anlis
-  for (let i in anlis) {
-    if (anlis[i].id == id) {
-      anlis.splice(i, 1)
-      break
-    }
-  }
-  /* server start */
   http.get({
     url: 'cz/anlis.php?m=del',
     data: anli
   })
-  /* server end */
-  return anlis
-}
 
-function sortAnli(anli, down = false) {
+  /* app.anlis */
   let anlis = app.anlis
-  let id = anli.id
-
   let index = -1
   for (let i in anlis) {
-    if (anlis[i].id == id) {
+    if (anlis[i].id == anli.id) {
       index = i
       break
     }
   }
-  let temp = anlis[index]
-  if (down) {
-    if (index < anlis.length - 1) {
-      anlis[index] = anlis[Number(index) + 1]
-      anlis[Number(index) + 1] = temp
-    }
-  } else {
-    if (index > 0) {
-      anlis[index] = anlis[index - 1]
-      anlis[index - 1] = temp
-    }
-  }
+  anlis.splice(index, 1)
+}
 
-  /* server start */
+function sortAnli(anlis, desc) {
   for (let i in anlis) {
-    if (anlis[i].sort != i) {
-      anlis[i].sort = i
+    if (anlis[i].sort != anlis.length - i) {
+      anlis[i].sort = anlis.length - i
       http.get({
         url: 'cz/anlis.php?m=set',
         data: {
@@ -123,8 +99,9 @@ function sortAnli(anli, down = false) {
       })
     }
   }
-  /* server end */
-  return anlis
+
+  /* app.anlis */
+  app.anlis = anlis
 }
 
 export var Anlis = {

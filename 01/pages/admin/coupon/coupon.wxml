@@ -1,5 +1,4 @@
 <view class="coupon">
-
   <view class="coupon-title">
     <input value="{{coupon.title}}" placeholder="输入优惠券标题" data-id="{{coupon.id}}" bindblur="onTitleBlur" />
   </view>
@@ -9,8 +8,8 @@
   <view class="coupon-notes">
     <input value="{{coupon.notes}}" placeholder="输入使用备注" data-id="{{coupon.id}}" bindblur="onNotesBlur" />
   </view>
-  <view class="coupon-image {{coupon.image?'':'empty'}}" catchtap="onImageTap">
-    <image src="{{coupon.image ? coupon.image + youImageMode : '/images/icon/camera.png'}}" mode="aspectFill" />
+  <view class="coupon-image" catchtap="onImageTap">
+    <image class="image-normal" wx:if="{{coupon.image}}" src="{{coupon.image ? coupon.image + youImageMode : ''}}" mode="aspectFill" />
+    <image class="image-camera" wx:if="{{!coupon.image}}" src="/images/icon/camera.png" mode="aspectFill" />
   </view>
-
 </view>

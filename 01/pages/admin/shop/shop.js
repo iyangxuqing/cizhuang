@@ -10,11 +10,6 @@ Page({
 
   data: {
     youImageMode: config.youImageMode,
-
-    shop: {
-      latitude: 29.26948,
-      longitude: 120.05691,
-    },
   },
 
   onShopNameBlur: function (e) {

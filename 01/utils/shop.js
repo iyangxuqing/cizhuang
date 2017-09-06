@@ -18,8 +18,8 @@ function getShop(options = {}) {
             address: '',
             logo: '',
             images: '[]',
-            latitude: 29.00001,
-            longitude: 120.00001,
+            latitude: 29.26948,
+            longitude: 120.05691,
           }
           shop.images = JSON.parse(shop.images)
           shop.latitude = Number(shop.latitude)

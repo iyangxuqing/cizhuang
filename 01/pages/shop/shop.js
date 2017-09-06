@@ -8,12 +8,6 @@ Page({
    */
   data: {
     youImageMode: config.youImageMode,
-    // shop: {
-    //   location: {
-    //     latitude: 29.26948,
-    //     longitude: 120.05691,
-    //   },
-    // },
   },
 
   onPhoneTap: function (e) {

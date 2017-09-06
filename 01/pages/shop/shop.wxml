@@ -1,9 +1,9 @@
-<view class="container">
+<view class="container" wx:if="{{ready}}">
 
   <view class="header">
     <view class="shop-name">{{shop.name}}</view>
     <view class="shop-logo">
-      <image src="{{shop.logo}}" />
+      <image src="{{shop.logo ? shop.logo + youImageMode : ''}}" mode="aspectFill" />
     </view>
   </view>
 
@@ -30,17 +30,17 @@
 
   <view class="shop-images">
     <view class="shop-image">
-      <image src="{{shop.images[0]}}" />
+      <image src="{{shop.images[0] ? shop.images[0] + youImageMode : ''}}" mode="aspectFill" />
     </view>
     <view class="shop-thumbs">
       <view class="shop-thumb">
-        <image src="{{shop.images[1]}}" />
+        <image src="{{shop.images[1] ? shop.images[1] + youImageMode : ''}}" mode="aspectFill" />
       </view>
       <view class="shop-thumb">
-        <image src="{{shop.images[2]}}" />
+        <image src="{{shop.images[2] ? shop.images[1] + youImageMode : ''}}" mode="aspectFill" />
       </view>
       <view class="shop-thumb">
-        <image src="{{shop.images[3]}}" />
+        <image src="{{shop.images[3] ? shop.images[3] + youImageMode : ''}}" mode="aspectFill" />
       </view>
     </view>
   </view>

@@ -1,5 +1,6 @@
 {
   "pages": [
+    
     "pages/model/modelList/modelList",
     "pages/model/modelDetail/modelDetail",
 
@@ -16,7 +17,8 @@
     "pages/admin/cases/cases",
     "pages/admin/case/case",
     "pages/admin/coupons/coupons",
-    "pages/admin/coupon/coupon"
+    "pages/admin/coupon/coupon",
+    "pages/admin/shop/shop"
   ],
 
   "window": {

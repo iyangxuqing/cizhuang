@@ -31,7 +31,6 @@ function getCouponsSync() {
 
 function getCoupon(id) {
   let coupons = app.coupons
-  console.log(coupons, id)
   for (let i in coupons) {
     if (coupons[i].id == id) {
       return coupons[i]

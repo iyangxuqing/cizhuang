@@ -80,7 +80,3 @@ input {
 .shop-name input {
   height: 100rpx;
 }
-
-.shop-logo {
-  border: 0;
-}

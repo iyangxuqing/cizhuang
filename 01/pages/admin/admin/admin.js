@@ -14,15 +14,21 @@ Page({
     })
   },
 
-  onAdminAnliTap: function(e){
+  onAdminAnliTap: function (e) {
     wx.navigateTo({
       url: '../cases/cases',
     })
   },
 
-  onAdminCouponTap: function(e){
+  onAdminCouponTap: function (e) {
     wx.navigateTo({
       url: '../coupons/coupons',
+    })
+  },
+
+  onAdminShopTap: function (e) {
+    wx.navigateTo({
+      url: '../shop/shop',
     })
   },
 

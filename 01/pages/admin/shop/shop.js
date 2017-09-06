@@ -4,9 +4,9 @@ import { Shop } from '../../../utils/shop.js'
 
 let app = getApp()
 
-let hasChanged = false
-
 Page({
+
+  hasChanged: false,
 
   data: {
     youImageMode: config.youImageMode,
@@ -19,7 +19,7 @@ Page({
       this.setData({
         'shop.name': name
       })
-      hasChanged = true
+      this.hasChanged = true
     }
   },
 
@@ -30,7 +30,7 @@ Page({
       this.setData({
         'shop.phone': phone
       })
-      hasChanged = true
+      this.hasChanged = true
     }
   },
 
@@ -41,7 +41,7 @@ Page({
       this.setData({
         'shop.address': address
       })
-      hasChanged = true
+      this.hasChanged = true
     }
   },
 
@@ -71,7 +71,7 @@ Page({
       page.setData({
         'shop.logo': image
       })
-      hasChanged = true
+      page.hasChanged = true
     })
   },
 
@@ -84,27 +84,27 @@ Page({
       page.setData({
         'shop.images': images
       })
-      hasChanged = true
+      page.hasChanged = true
     })
   },
 
   onAddressMapTap: function (e) {
     let page = this
     wx.chooseLocation({
-      success: function(res){
-        let latitude = res.latitude
-        let longitude = res.longitude
+      success: function (res) {
+        let latitude = res.latitude.toFixed(5)
+        let longitude = res.longitude.toFixed(5)
         page.setData({
           'shop.latitude': latitude,
           'shop.longitude': longitude,
         })
-        hasChanged = true
+        page.hasChanged = true
       }
-    })    
+    })
   },
 
   saveShop: function () {
-    if (hasChanged) {
+    if (this.hasChanged) {
       let shop = this.data.shop
       Shop.set(shop)
     }

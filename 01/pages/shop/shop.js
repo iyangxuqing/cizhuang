@@ -31,9 +31,6 @@ Page({
   onLoad: function (options) {
     let page = this
     Shop.get().then(function (shop) {
-      shop.name = shop.name || '店铺名称'
-      shop.phone = shop.phone || '联系电话'
-      shop.address = shop.address || '店铺地址'
       page.setData({
         shop: shop,
         ready: true,
@@ -77,11 +74,8 @@ Page({
    */
   onPullDownRefresh: function () {
     let page = this
-    Shop.get({ nochace: true })
+    Shop.get({ nocache: true })
       .then(function (shop) {
-        shop.name = shop.name || '店铺名称'
-        shop.phone = shop.phone || '联系电话'
-        shop.address = shop.address || '店铺地址'
         page.setData({
           shop: shop,
           ready: true,

@@ -24,6 +24,7 @@ function getShop(options = {}) {
           shop.images = JSON.parse(shop.images)
           shop.latitude = Number(shop.latitude)
           shop.longitude = Number(shop.longitude)
+          app.shop = shop
           resolve(shop)
         } else {
           reject(res)
@@ -37,10 +38,19 @@ function getShop(options = {}) {
 
 function setShop(shop, cb) {
   return new Promise(function (resolve, reject) {
-    shop.images = JSON.stringify(shop.images)
+    let data = {
+      id: shop.id,
+      name: shop.name,
+      phone: shop.phone,
+      address: shop.address,
+      logo: shop.logo,
+      images: JSON.stringify(shop.images),
+      latitude: shop.latitude,
+      longitude: shop.longitude,
+    }
     http.post({
       url: 'cz/shop.php?m=set',
-      data: shop
+      data: data
     }).then(function (res) {
       if (res.errno === 0) {
         resolve(res)

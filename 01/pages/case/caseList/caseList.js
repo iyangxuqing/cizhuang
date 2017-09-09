@@ -1,5 +1,7 @@
-let config = require('../../../utils/config.js')
+import { Loading } from '../../../template/loading/loading.js'
 import { Anlis } from '../../../utils/anlis.js'
+
+let app = getApp()
 
 Page({
 
@@ -7,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    youImageMode: config.youImageMode
+    youImageMode: app.youImageMode
   },
 
   onAnliTap: function (e) {
@@ -23,12 +25,12 @@ Page({
         for (let i in anlis) {
           let last = {
             time: '',
-            desc: '',
+            descs: '',
             images: []
           }
           if (anlis[i].process.length) last = anlis[i].process[0]
           anlis[i].time = last.time
-          anlis[i].desc = last.desc
+          anlis[i].descs = last.descs
           anlis[i].image = ''
           if (last.images.length) anlis[i].image = last.images[0]
         }
@@ -48,12 +50,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.loading = new Loading()
+    this.loading.show()
     this.loadAnlis({
       success: function (anlis) {
         this.setData({
           ready: true,
           anlis: anlis,
         })
+        this.loading.hide()
       }.bind(this)
     })
   },

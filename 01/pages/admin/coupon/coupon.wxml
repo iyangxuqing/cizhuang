@@ -12,8 +12,7 @@
     <input value="{{coupon.notes}}" placeholder="输入使用备注" data-id="{{coupon.id}}" bindblur="onNotesBlur" maxlength="16" />
   </view>
   <view class="coupon-label">图示</view>
-  <view class="coupon-image" catchtap="onImageTap">
-    <image class="image-normal" wx:if="{{coupon.image}}" src="{{coupon.image ? coupon.image + youImageMode : ''}}" mode="aspectFill" />
-    <image class="image-camera" wx:if="{{!coupon.image}}" src="/images/icon/camera.png" mode="aspectFill" />
+  <view class="coupon-image {{coupon.image ? '' : 'empty'}}" catchtap="onImageTap">
+    <image src="{{coupon.image ? coupon.image + youImageMode : ''}}" mode="aspectFill" />
   </view>
 </view>

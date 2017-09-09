@@ -31,7 +31,7 @@
     <view class="anli-text">
       <view class="anli-title">{{subdistrict}}</view>
       <view class="anli-subTitle">{{houseAddress}}</view>
-      <view class="anli-desc"><text>{{desc}}</text></view>
+      <view class="anli-descs"><text>{{descs}}</text></view>
       <view class="anli-text-foot">
         <view class="anli-time">{{time}}</view>
         <view class="anli-praise">

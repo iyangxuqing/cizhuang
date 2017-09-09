@@ -1,4 +1,4 @@
-@import '/template/loading/loading.wxss';
+@import '/template/swiperImagesEditor/swiperImagesEditor.wxss';
 
 page {
   height: 100%;
@@ -25,29 +25,7 @@ page {
 
 .model-images {
   height: 480rpx;
-  margin-left: -30rpx;
-  margin-right: -30rpx;
   margin-bottom: 30rpx;
-}
-
-.model-images swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.model-image {
-  width: 100%;
-  height: 480rpx;
-  padding-left: 30rpx;
-  padding-right: 30rpx;
-}
-
-.model-image-add {
-  width: 690rpx;
-  margin-left: 30rpx;
-  margin-right: 30rpx;
-  padding: 170rpx 275rpx;
-  border: 1px solid #ddd;
 }
 
 .model-descs {
@@ -57,16 +35,7 @@ page {
   border: 1px solid #ddd;
 }
 
-textarea {
+.model-descs textarea {
   width: 100%;
   height: 100%;
-}
-
-.model-image-del {
-  position: absolute;
-  width: 100rpx;
-  height: 100rpx;
-  top: -10rpx;
-  right: 20rpx;
-  padding: 20rpx;
 }

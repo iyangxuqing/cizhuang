@@ -14,7 +14,7 @@
           </view>
         </view>
         <view class="item-thumb">
-          <image src="{{item.images[0] ? item.images[0] + youImageMode : ''}}" />
+          <image src="{{item.images[0] ? item.images[0] + youImageMode : ''}}" mode="aspectFill" />
         </view>
         <view class="item-title">{{item.title}}</view>
       </view>

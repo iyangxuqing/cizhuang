@@ -1,3 +1,6 @@
+<import src="/template/loading/loading.wxml" />
+<template is="loading" data="{{...loading}}" />
+
 <view class="container" wx:if="{{ready}}">
   <view class="anlis">
     <block wx:for="{{anlis}}" wx:key="" wx:for-item="anli">
@@ -8,7 +11,7 @@
         <view class="text">
           <view class="title">{{anli.subdistrict}}</view>
           <view class="subTitle">{{anli.houseAddress}}</view>
-          <view class="desc"><text>{{anli.desc}}</text></view>
+          <view class="descs"><text>{{anli.descs}}</text></view>
           <view class="text-foot">
             <view class="time">{{anli.time}}</view>
             <view class="praise">

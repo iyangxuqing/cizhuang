@@ -69,50 +69,28 @@ function delModel(model) {
       break
     }
   }
-
   /* server start */
   http.get({
     url: 'cz/models.php?m=del',
     data: model
-  }).then(function (res) {
-    if (res.errno === 0) {
-      app.listener.trigger('models', models)
-    }
   })
   /* server end */
-  return models
 }
 
-function sortModel(model, sourceIndex, targetIndex) {
-  let models = app.models
-  if (sourceIndex < 0 || sourceIndex >= models.length) {
-    return models
-  }
-  if (targetIndex < 0 || targetIndex >= models.length) {
-    return models
-  }
-  models.splice(sourceIndex, 1)
-  models.splice(targetIndex, 0, model)
-
-  /* server start */
-  for (let i in models) {
-    if (models[i].sort != i) {
-      models[i].sort = i
-      http.get({
-        url: 'cz/models.php?m=set',
-        data: {
-          id: models[i].id,
-          sort: models[i].sort
-        }
-      }).then(function (res) {
-        if (!res.error) {
-          app.listener.trigger('models', models)
-        }
-      })
+function sortModel(models){
+   for (let i in models) {
+      if (models[i].sort != i) {
+        models[i].sort = i
+        http.get({
+          url: 'cz/models.php?m=set',
+          data: {
+            id: models[i].id,
+            sort: models[i].sort
+          }
+        })
+      }
     }
-  }
-  /* server end */
-  return models
+    app.models = models
 }
 
 export var Models = {

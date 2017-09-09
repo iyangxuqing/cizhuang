@@ -96,7 +96,7 @@
   overflow: hidden;
 }
 
-.anli-desc {
+.anli-descs {
   min-height: 60rpx;
   font-size: 13px;
   color: #888;

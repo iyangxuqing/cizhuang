@@ -6,8 +6,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 110rpx;
-  padding: 0 30rpx;
+  min-height: 110rpx;
+  padding: 20rpx 30rpx;
   background-color: #fff;
   margin-bottom: 1px;
 }

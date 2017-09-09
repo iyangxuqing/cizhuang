@@ -1,15 +1,13 @@
-let config = require('../../../utils/config.js')
 import { Loading } from '../../../template/loading/loading.js'
 import { Models } from '../../../utils/models.js'
 import { Resource } from '../../../utils/resource.js'
 
+let app = getApp()
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-    youImageMode: config.youImageMode,
+    youImageMode: app.youImageMode,
   },
 
   onItemTap: function (e) {
@@ -23,25 +21,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let page = this
-    page.loading = new Loading()
+    this.loading = new Loading()
 
+    let page = this
     page.loading.show()
-    Models.getModels().then(function (models) {
-      Resource.get().then(function (resource) {
-        let homeHeadImages = resource['homeHeadImages']
-        homeHeadImages = JSON.parse(homeHeadImages) || []
-        let homeSlogan = resource['homeSlogan']
-        let homeLogo = resource['homeLogo']
-        page.setData({
-          homeHeadImages: homeHeadImages,
-          homeSlogan: homeSlogan,
-          homeLogo: homeLogo,
-          models: models,
-          ready: true,
-        })
-        page.loading.hide()
+    Promise.all([Models.getModels(), Resource.get()]).then(function (res) {
+      let models = res[0]
+      let resource = res[1]
+      let homeHeadImages = resource['homeHeadImages']
+      homeHeadImages = JSON.parse(homeHeadImages) || []
+      let homeSlogan = resource['homeSlogan']
+      let homeLogo = resource['homeLogo']
+      page.setData({
+        homeHeadImages: homeHeadImages,
+        homeSlogan: homeSlogan,
+        homeLogo: homeLogo,
+        models: models,
+        ready: true,
       })
+      page.loading.hide()
     })
   },
 

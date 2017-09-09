@@ -77,7 +77,7 @@ input {
   margin-right: -10rpx;
 }
 
-.process-desc {
+.process-descs {
   padding: 20rpx 0;
   padding-left: 20rpx;
 }
@@ -137,7 +137,7 @@ text.empty {
   background-color: #f2f2f2;
 }
 
-.editor.desc {
+.editor.descs {
   padding-left: 20rpx;
 }
 

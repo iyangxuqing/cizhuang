@@ -1,5 +1,7 @@
-let config = require('../../utils/config.js')
+import { Loading } from '../../template/loading/loading.js'
 import { Shop } from '../../utils/shop.js'
+
+let app = getApp()
 
 Page({
 
@@ -7,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    youImageMode: config.youImageMode,
+    youImageMode: app.youImageMode,
   },
 
   onPhoneTap: function (e) {
@@ -30,6 +32,8 @@ Page({
    */
   onLoad: function (options) {
     let page = this
+    page.loading = new Loading()
+    page.loading.show()
     Shop.get().then(function (shop) {
       page.setData({
         shop: shop,
@@ -38,6 +42,7 @@ Page({
       wx.setNavigationBarTitle({
         title: shop.name
       })
+      page.loading.hide()
     })
   },
 

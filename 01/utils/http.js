@@ -140,9 +140,38 @@ function cosDelete(options) {
   })
 }
 
+function chooseImage() {
+  return new Promise(function (resolve, reject) {
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['compressed'],
+      success: function (res) {
+        let tempFilePath = res.tempFilePaths[0]
+        wx.showNavigationBarLoading()
+        http.cosUpload({
+          source: tempFilePath,
+          target: Date.now()
+        }).then(function (res) {
+          if (res.errno === 0) {
+            resolve(res.url)
+            wx.hideNavigationBarLoading()
+          } else {
+            reject(res)
+            wx.hideNavigationBarLoading()
+          }
+        }).catch(function (res) {
+          reject(res)
+          wx.hideNavigationBarLoading()
+        })
+      },
+    })
+  })
+}
+
 export var http = {
   get: get,
   post: post,
   cosUpload: cosUpload,
   cosDelete: cosDelete,
+  chooseImage: chooseImage,
 }

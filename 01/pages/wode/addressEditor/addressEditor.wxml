@@ -17,7 +17,7 @@
     </view>
     <view class="row row-address-detail">
       <view class="address-detail-label">详细地址</view>
-      <input class="address-detail-input" name="addressDetail" value="{{addressDetail}}" placeholder="街道门牌信息" />
+      <input class="address-detail-input" name="addressDetail" value="{{addressDetail}}" placeholder="街道门牌信息" maxlength="20" />
       <view class="icon icon-address-detail"></view>
     </view>
     <view class="row row-address-buttons">

@@ -5,7 +5,7 @@
       <input value="{{shop.name}}" placeholder="输入店铺名称" bindblur="onShopNameBlur" maxlength="8" />
     </view>
     <view class="shop-logo" catchtap="onShopLogoTap">
-      <image src="{{shop.logo ? shop.logo + youImageMode : ''}}" mode="aspectFill" />
+      <image src="{{shop.logo}}" mode="aspectFill" />
     </view>
   </view>
 
@@ -23,7 +23,7 @@
         <image src="/images/icon/map-pin_blue.png" />
       </view>
       <view class="text">
-        <input value="{{shop.address}}" placeholder="输入店铺地址" bindblur="onShopAddressBlur" maxlength="20" />
+        <input value="{{shop.address}}" placeholder="输入店铺地址" bindblur="onShopAddressBlur" maxlength="30" />
       </view>
     </view>
   </view>

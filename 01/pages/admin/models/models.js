@@ -1,19 +1,16 @@
-import { http } from '../../../utils/http.js'
 import { Loading } from '../../../template/loading/loading.js'
+import { http } from '../../../utils/http.js'
 import { Models } from '../../../utils/models.js'
 import { Resource } from '../../../utils/resource.js'
 import { SwiperImagesEditor } from '../../../template/swiperImagesEditor/swiperImagesEditor.js'
 import { ListGridEditor } from '../../../template/listGridEditor/listGridEditor.js'
 
-let touchPositionX = 0
-let touchPositionY = 0
-let modelDeleteTimer = null
 let app = getApp()
 
 Page({
 
   data: {
-    youImageMode: '',
+    youImageMode: app.youImageMode,
   },
 
   onModelsUpdate: function (models) {
@@ -31,8 +28,6 @@ Page({
 
   onHomeSloganBlur: function (e) {
     let value = e.detail.value
-    value = value.replace("'", "")
-    value = value.replace("\\", "")
     let homeSlogan = value
     Resource.set({
       key: 'homeSlogan',
@@ -42,29 +37,13 @@ Page({
 
   onHomeLogoTap: function (e) {
     let page = this
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['compressed'],
-      success: function (res) {
-        let tempFilePath = res.tempFilePaths[0]
-        wx.showNavigationBarLoading()
-        http.cosUpload({
-          source: tempFilePath,
-          target: Date.now()
-        }).then(function (res) {
-          if (res.errno === 0) {
-            let homeLogo = res.url
-            page.setData({
-              homeLogo: homeLogo
-            })
-            Resource.set({
-              key: 'homeLogo',
-              value: homeLogo
-            })
-            wx.hideNavigationBarLoading()
-          }
-        })
-      }
+    http.chooseImage().then(function (image) {
+      let homeLogo = image
+      page.setData({ homeLogo })
+      Resource.set({
+        key: 'homeLogo',
+        value: homeLogo
+      })
     })
   },
 
@@ -74,66 +53,46 @@ Page({
     })
   },
 
-  onGridItemDel: function (model, models) {
-    http.get({
-      url: 'cz/models.php?m=del',
-      data: {
-        id: model.id
-      }
-    })
-    app.models = models
+  onGridItemDel: function (model) {
+    Models.del(model)
   },
 
   onGridItemSort: function (models) {
-    for (let i in models) {
-      if (models[i].sort != i) {
-        models[i].sort = i
-        http.get({
-          url: 'cz/models.php?m=set',
-          data: {
-            id: models[i].id,
-            sort: models[i].sort
-          }
-        })
-      }
-    }
-    app.models = models
+    Models.sort(models)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let page = this
-    page.loading = new Loading()
+    this.loading = new Loading()
     app.listener.on('models', this.onModelsUpdate)
 
+    let page = this
     page.loading.show()
-    Models.getModels().then(function (models) {
+    Promise.all([Models.getModels(), Resource.get()]).then(function (res) {
+      let models = res[0]
+      let resource = res[1]
       page.listGridEditor = new ListGridEditor({
         items: models,
         onItemTap: page.onGridItemTap,
         onItemDel: page.onGridItemDel,
         onItemSort: page.onGridItemSort
       })
-
-      Resource.get().then(function (resource) {
-        let homeHeadImages = resource['homeHeadImages']
-        homeHeadImages = JSON.parse(homeHeadImages) || []
-        let homeSlogan = resource['homeSlogan']
-        let homeLogo = resource['homeLogo']
-        page.swiperImagesEditor = new SwiperImagesEditor({
-          images: homeHeadImages,
-          imagesChanged: false,
-          onImagesChanged: page.onHomeHeadImagesChanged,
-        })
-        page.setData({
-          homeSlogan: homeSlogan,
-          homeLogo: homeLogo,
-          ready: true,
-        })
-        page.loading.hide()
+      let homeHeadImages = resource['homeHeadImages']
+      homeHeadImages = JSON.parse(homeHeadImages) || []
+      let homeSlogan = resource['homeSlogan']
+      let homeLogo = resource['homeLogo']
+      page.swiperImagesEditor = new SwiperImagesEditor({
+        images: homeHeadImages,
+        onImagesChanged: page.onHomeHeadImagesChanged,
       })
+      page.setData({
+        homeSlogan: homeSlogan,
+        homeLogo: homeLogo,
+        ready: true,
+      })
+      page.loading.hide()
     })
   },
 

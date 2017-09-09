@@ -1,8 +1,6 @@
-let config = require('../../../utils/config.js')
 import { Loading } from '../../../template/loading/loading.js'
 import { Toptip } from '../../../template/toptip/toptip.js'
 import { Mobile } from '../../../template/mobile/mobile.js'
-import { Listener } from '../../../utils/listener.js'
 import { User } from '../../../utils/user.js'
 import { Coupons } from '../../../utils/coupons.js'
 
@@ -14,7 +12,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    youImageMode: config.youImageMode
+    youImageMode: app.youImageMode
   },
 
   getUserInfo: function (e) {

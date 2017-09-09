@@ -1,9 +1,13 @@
-.container {
+@import '/template/loading/loading.wxss';
+
+page{
   padding-left: 30rpx;
   padding-right: 30rpx;
+}
+
+.container {
   padding-bottom: 200rpx;
-  background-color: #f8fafc;
-  background-clip: content-box;
+  /* background-color: #f8faf8; */
 }
 
 .header {
@@ -71,14 +75,6 @@
   width: 210rpx;
   height: 210rpx;
   border: 1px solid #ddd;
-}
-
-input {
-  width: 100%;
-}
-
-.shop-name input {
-  height: 100rpx;
 }
 
 .shop-logo {

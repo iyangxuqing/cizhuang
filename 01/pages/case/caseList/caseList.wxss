@@ -1,3 +1,5 @@
+@import '/template/loading/loading.wxss';
+
 .container {
   padding: 30rpx;
   padding-left: 30rpx;
@@ -49,7 +51,7 @@
   overflow: hidden;
 }
 
-.desc {
+.descs {
   min-height: 60rpx;
   font-size: 13px;
   color: #888;

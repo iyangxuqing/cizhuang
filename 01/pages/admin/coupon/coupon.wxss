@@ -35,6 +35,9 @@ input {
   margin-top: 20rpx;
 }
 
-.image-camera {
-  padding: 50rpx;
+.coupon-image.empty{
+  background-image: url('/images/icon/camera.png');
+  background-repeat: no-repeat;
+  background-size: 120rpx;
+  background-position: center;
 }

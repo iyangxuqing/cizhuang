@@ -4,7 +4,7 @@
 <view class="container" wx:if="{{ready}}">
 
   <view class="homeHeadImages">
-    <swiper>
+    <swiper autoplay="true" circular="true">
       <block wx:for="{{homeHeadImages}}" wx:key="">
         <swiper-item>
           <image src="{{item ? item + youImageMode : ''}}" mode="aspectFill" />
@@ -16,7 +16,7 @@
   <view class="homeSlogan">{{homeSlogan}}</view>
 
   <view class="homeLogo">
-    <image src="{{homeLogo ? homeLogo + youImageMode: ''}}" mode="aspectFill" />
+    <image src="{{homeLogo}}" mode="aspectFill" />
   </view>
 
   <view class="list models">

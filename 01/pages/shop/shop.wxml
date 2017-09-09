@@ -1,9 +1,12 @@
+<import src='/template/loading/loading.wxml' />
+<template is="loading" data="{{...loading}}" />
+
 <view class="container" wx:if="{{ready}}">
 
   <view class="header">
     <view class="shop-name">{{shop.name || '店铺名称'}}</view>
     <view class="shop-logo">
-      <image src="{{shop.logo ? shop.logo + youImageMode : ''}}" mode="aspectFill" />
+      <image src="{{shop.logo}}" mode="aspectFill" />
     </view>
   </view>
 

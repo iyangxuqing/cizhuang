@@ -1,5 +1,6 @@
-let config = require('../../../utils/config.js')
 import { Models } from '../../../utils/models.js'
+
+let app = getApp()
 
 Page({
 
@@ -7,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    youImageMode: config.youImageMode,
+    youImageMode: app.youImageMode,
   },
 
   onSwiperChange: function (e) {
@@ -37,7 +38,6 @@ Page({
       this.setData({
         current: current,
         models: models,
-        ready: true
       })
     }.bind(this))
   },

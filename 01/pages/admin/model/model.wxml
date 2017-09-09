@@ -1,36 +1,13 @@
-<import src="/template/loading/loading.wxml" />
-<template is="loading" data="{{...loading}}" />
+<import src="/template/swiperImagesEditor/swiperImagesEditor.wxml" />
 
 <view class="model">
-
   <view class="model-title">
     <input value="{{model.title}}" placeholder="输入样板房名称" bindblur="onTitleBlur" />
   </view>
-
   <view class="model-images">
-    <swiper indicator-dots="{{model.images.length}}">
-      <block wx:for="{{model.images}}" wx:key="">
-        <swiper-item>
-          <view class="model-image" data-index="{{index}}" catchtap="onImageTap" catchlongpress="onImageLongPress">
-            <view class="model-image-del" data-index="{{index}}" catchtap="onImageDel" wx:if="{{delImageIndex==index}}">
-              <image src="/images/icon/delete.png" />
-            </view>
-            <image src="{{item ? item + youImageMode : ''}}" mode="aspectFill" />
-          </view>
-        </swiper-item>
-      </block>
-      <block wx:if="{{model.images.length<9}}">
-        <swiper-item>
-          <view class="model-image model-image-add" data-index="-1" catchtap="onImageTap">
-            <image src="/images/icon/camera.png" />
-          </view>
-        </swiper-item>
-      </block>
-    </swiper>
+    <template is="swiper-images-editor" data="{{...swiperImagesEditor, youImageMode}}" />
   </view>
-
   <view class="model-descs">
     <textarea value="{{model.descs}}" placeholder="输入描述文字..." bindblur="onDescsBlur"></textarea>
   </view>
-
 </view>

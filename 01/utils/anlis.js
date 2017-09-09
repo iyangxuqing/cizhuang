@@ -14,7 +14,7 @@ function getAnlis(options = {}) {
         if (res.errno === 0) {
           let anlis = res.anlis
           for (let i in anlis) {
-            anlis[i].process = anlis[i].process.json()
+            anlis[i].process = JSON.parse(anlis[i].process)
           }
           app.anlis = anlis
           resolve(anlis)

@@ -1,4 +1,3 @@
-let config = require('../../../utils/config.js')
 import { Coupons } from '../../../utils/coupons.js'
 import { ListRowsEditor } from '../../../template/listRowsEditor/listRowsEditor.js'
 
@@ -10,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    youImageMode: config.youImageMode
+    youImageMode: app.youImageMode
   },
 
   onCouponAdd: function (e) {

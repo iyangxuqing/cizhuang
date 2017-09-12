@@ -33,7 +33,7 @@ Page({
     }
   },
 
-  onImagesChanged: function(images){
+  onImagesChanged: function (images) {
     this.setData({
       'model.images': images
     })
@@ -82,7 +82,8 @@ Page({
     let model = this.loadModel(options)
     this.swiperImagesEditor = new SwiperImagesEditor({
       images: model.images,
-      onImagesChanged: this.onImagesChanged
+      onImagesChanged: this.onImagesChanged,
+      maxImagesLength: 9,
     })
     this.setData({
       model: model,

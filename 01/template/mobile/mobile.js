@@ -104,10 +104,6 @@ let methods = {
             page.setData({
               'mobile.verified': true,
             })
-            User.setUser({
-              mobileNumber: res.mobile,
-              mobileVerified: res.mobileVerified
-            })
           }, 300)
         } else {
           page.setData({

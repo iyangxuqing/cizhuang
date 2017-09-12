@@ -19,7 +19,7 @@
 
 .homeLogo {
   height: 80rpx;
-  background-color: #eee;
+  background-color: #f2f2f2;
   margin-bottom: 30rpx;
 }
 

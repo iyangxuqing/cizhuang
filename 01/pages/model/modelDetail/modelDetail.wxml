@@ -1,8 +1,9 @@
 <view class="models">
-  <swiper class="swiper-models" current="{{current}}" bindchange="onSwiperChange">
+  <swiper class="swiper-models" current="{{current}}">
     <block wx:for="{{models}}" wx:key="" wx:for-item="model">
       <swiper-item>
         <view class="model">
+          <view class="model-title">{{model.title}}</view>
           <view class="model-images">
             <swiper class="swiper-images" indicator-dots="{{model.images.length}}">
               <block wx:for="{{model.images}}" wx:key="" wx:for-item="image">
@@ -13,11 +14,6 @@
                 </swiper-item>
               </block>
             </swiper>
-          </view>
-          <view class="model-title">
-            <view class="model-title-line"></view>
-            <view class="model-title-text">{{model.title}}</view>
-            <view class="model-title-line"></view>
           </view>
           <view class="model-descs">
             <text space="ensp">{{model.descs}}</text>

@@ -4,7 +4,7 @@
     <view class="shop-name">
       <input value="{{shop.name}}" placeholder="输入店铺名称" bindblur="onShopNameBlur" maxlength="8" />
     </view>
-    <view class="shop-logo" catchtap="onShopLogoTap">
+    <view class="shop-logo {{shop.logo ? '' : 'empty'}}" catchtap="onShopLogoTap">
       <image src="{{shop.logo}}" mode="aspectFill" />
     </view>
   </view>

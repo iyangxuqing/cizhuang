@@ -9,9 +9,7 @@ App({
 
   onLaunch: function () {
     this.listener = new Listener()
-    setTimeout(function () {
-      User.login()
-    }, 0)
+    User.login()
   },
 
 })

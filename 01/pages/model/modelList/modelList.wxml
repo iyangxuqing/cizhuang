@@ -2,7 +2,6 @@
 <template is="loading" data="{{...loading}}" />
 
 <view class="container" wx:if="{{ready}}">
-
   <view class="homeHeadImages">
     <swiper autoplay="true" circular="true">
       <block wx:for="{{homeHeadImages}}" wx:key="">
@@ -12,13 +11,10 @@
       </block>
     </swiper>
   </view>
-
   <view class="homeSlogan">{{homeSlogan}}</view>
-
   <view class="homeLogo">
     <image src="{{homeLogo}}" mode="aspectFill" />
   </view>
-
   <view class="list models">
     <block wx:for="{{models}}" wx:key="">
       <view class="item model" data-id="{{item.id}}" catchtap="onItemTap">
@@ -29,5 +25,4 @@
       </view>
     </block>
   </view>
-
 </view>

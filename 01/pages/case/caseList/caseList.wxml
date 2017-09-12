@@ -5,19 +5,14 @@
   <view class="anlis">
     <block wx:for="{{anlis}}" wx:key="" wx:for-item="anli">
       <view class="anli" catchtap="onAnliTap" data-id="{{anli.id}}">
-        <view class="image">
+        <view class="anli-image">
           <image src="{{anli.image ? anli.image + youImageMode: ''}}" mode="aspectFill" />
         </view>
-        <view class="text">
-          <view class="title">{{anli.subdistrict}}</view>
-          <view class="subTitle">{{anli.houseAddress}}</view>
-          <view class="descs"><text>{{anli.descs}}</text></view>
-          <view class="text-foot">
-            <view class="time">{{anli.time}}</view>
-            <view class="praise">
-              <image src="/images/icon/praise.png"></image>
-            </view>
-          </view>
+        <view class="anli-text">
+          <view class="anli-title">{{anli.subdistrict}}</view>
+          <view class="anli-subTitle">{{anli.houseAddress}}</view>
+          <view class="anli-descs"><text>{{anli.descs}}</text></view>
+          <view class="anli-time">{{anli.time}}</view>
         </view>
       </view>
     </block>

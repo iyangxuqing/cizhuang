@@ -1,13 +1,10 @@
 @import '/template/loading/loading.wxss';
 
-page{
-  padding-left: 30rpx;
-  padding-right: 30rpx;
-}
-
 .container {
-  padding-bottom: 200rpx;
-  /* background-color: #f8faf8; */
+  padding: 30rpx;
+  padding-top: 0;
+  background-color: #f6f6f6;
+  background-clip: content-box;
 }
 
 .header {

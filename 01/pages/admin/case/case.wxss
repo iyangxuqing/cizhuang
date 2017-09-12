@@ -1,9 +1,5 @@
-page {
-  padding: 30rpx 30rpx;
-}
-
 .anli {
-  padding-bottom: 200rpx;
+  padding: 30rpx;
 }
 
 .subdistrict {
@@ -12,7 +8,7 @@ page {
   height: 120rpx;
   font-size: 1.3em;
   padding-left: 20rpx;
-  background-color: #f2f2f2;
+  background-color: #eee;
   margin-bottom: 2rpx;
 }
 
@@ -21,7 +17,7 @@ page {
   align-items: center;
   height: 80rpx;
   padding-left: 20rpx;
-  background-color: #f2f2f2;
+  background-color: #eee;
   margin-bottom: 2rpx;
 }
 
@@ -29,7 +25,7 @@ page {
   display: flex;
   align-items: center;
   height: 80rpx;
-  background-color: #f2f2f2;
+  background-color: #eee;
   margin-bottom: 30rpx;
 }
 
@@ -51,15 +47,15 @@ input {
   width: 100%;
 }
 
-.item {
-  margin-bottom: 20rpx;
+.item + .item{
+  margin-top: 20rpx;
 }
 
 .item-head {
   height: 80rpx;
   display: flex;
   align-items: center;
-  background-color: #f2f2f2;
+  background-color: #eee;
   margin-bottom: 20rpx;
 }
 

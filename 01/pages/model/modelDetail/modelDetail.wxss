@@ -4,8 +4,7 @@ page {
 
 .models {
   height: 100%;
-  padding-top: 30rpx;
-  padding-bottom: 30rpx;
+  padding: 30rpx;
 }
 
 swiper.swiper-models {
@@ -13,58 +12,38 @@ swiper.swiper-models {
 }
 
 .model {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  padding-left: 30rpx;
-  padding-right: 30rpx;
-}
-
-.model-images {
-  flex-shrink: 0;
-  height: 600rpx;
-  margin-left: -30rpx;
-  margin-right: -30rpx;
-  margin-bottom: 30rpx;
 }
 
 swiper.swiper-images {
   height: 100%;
 }
 
-.model-image {
-  width: 100%;
-  height: 100%;
-  padding-left: 30rpx;
-  padding-right: 30rpx;
-}
-
 .model-title {
-  flex-shrink: 0;
-  height: 80rpx;
+  height: 100rpx;
   display: flex;
   align-items: center;
-  text-align: center;
+  justify-content: center;
+  background-color: #f2f2f2;
   margin-bottom: 30rpx;
 }
 
-.model-title-line {
-  width: 100%;
-  height: 2rpx;
-  background-color: #ddd;
+.model-images {
+  height: 480rpx;
+  margin-bottom: 30rpx;
 }
 
-.model-title-text {
-  flex-shrink: 0;
-  font-size: 40rpx;
-  margin: 30rpx;
+.model-image {
+  height: 100%;
 }
 
 .model-descs {
   flex-grow: 1;
-  width: 100%;
-  height: 680rpx;
+  padding: 20rpx;
   line-height: 1.6;
   overflow: hidden;
   overflow-y: auto;
+  border: 1px solid #ddd;
 }

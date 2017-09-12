@@ -17,7 +17,7 @@
   line-height: 80rpx;
   padding-left: 10rpx;
   margin-bottom: 20rpx;
-  background-color: #f0f0f0;
+  background-color: #f2f2f2;
 }
 
 .process-descs {

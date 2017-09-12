@@ -4,19 +4,8 @@ let app = getApp()
 
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     youImageMode: app.youImageMode,
-  },
-
-  onSwiperChange: function (e) {
-    let current = e.detail.current
-    let models = this.data.models
-    wx.setNavigationBarTitle({
-      title: '样板房 - ' + models[current].title
-    })
   },
 
   /**
@@ -25,19 +14,16 @@ Page({
   onLoad: function (options) {
     let id = options.id
     Models.getModels().then(function (models) {
-      let current = -1
+      let index = -1
       for (let i in models) {
         if (models[i].id == id) {
-          current = i
+          index = i
           break
         }
       }
-      wx.setNavigationBarTitle({
-        title: '样板房 - ' + models[current].title
-      })
       this.setData({
-        current: current,
         models: models,
+        current: index,
       })
     }.bind(this))
   },

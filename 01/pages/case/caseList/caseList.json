@@ -1,7 +1,4 @@
 {
   "navigationBarTitleText": "身边案例",
-  "backgroundTextStyle": "dark",
-  "navigationBarBackgroundColor": "#eee",
-  "navigationBarTextStyle": "black",
   "enablePullDownRefresh": true
 }

@@ -10,6 +10,11 @@ App({
   onLaunch: function () {
     this.listener = new Listener()
     User.login()
+    User.getUser({
+      fields: 'role'
+    }).then(function (user) {
+      this.user = Object.assign({}, this.user, user);
+    }.bind(this))
   },
 
 })

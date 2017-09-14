@@ -28,8 +28,8 @@
   },
 
   "tabBar": {
-    "color": "#666",
-    "selectedColor": "#11bbff",
+    "color": "#999",
+    "selectedColor": "#09bb08",
     "backgroundColor": "#f2f2f2",
     "borderStyle": "black",
     "list": [
@@ -60,14 +60,14 @@
       {
         "pagePath": "pages/admin/admin/admin",
         "text": "后台管理",
-        "iconPath": "images/tab/01/user.png",
-        "selectedIconPath": "images/tab/02/user.png"
+        "iconPath": "images/tab/01/admin.png",
+        "selectedIconPath": "images/tab/02/admin.png"
       }
     ]
   },
 
   "networkTimeout": {
-    "request": 10000
+    "request": 30000
   }
 
 }

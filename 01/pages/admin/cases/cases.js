@@ -67,7 +67,11 @@ Page({
   },
 
   onItemSort: function (items) {
-    Anlis.sort(items)
+    let anlis = []
+    for(let i in items){
+      anlis[i] = items[items.length - i - 1]
+    }
+    Anlis.sort(anlis)
   },
 
   /**

@@ -16,7 +16,7 @@
             </swiper>
           </view>
           <view class="model-descs">
-            <text space="ensp">{{model.descs}}</text>
+            <text>{{model.descs}}</text>
           </view>
         </view>
       </swiper-item>

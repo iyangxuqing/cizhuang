@@ -16,12 +16,13 @@
 <template name="address">
   <view class="row row-address" catchtap="onAddressTap">
     <view class=" row-icon">
-      <image src="/images/icon/address.png"></image>
+       <image src="/images/icon/map-pin.png" /> 
+      
     </view>
     <view class="row-label">装修地址</view>
     <view class="row-value">{{province}}{{city}}{{district}}{{detail}}</view>
     <view class="row-icon">
-      <image src="/images/icon/enter.png"></image>
+      <image src="/images/icon/enter.png" />
     </view>
   </view>
 </template>

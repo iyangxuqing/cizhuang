@@ -2,7 +2,6 @@ import { User } from '../../utils/user.js'
 
 let data = {
   mobile: {
-    icon: '/images/icon/address.png',
     codeRequestText: '发送验证码',
     number: '',
     code: '',

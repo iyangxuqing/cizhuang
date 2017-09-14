@@ -45,5 +45,6 @@ swiper.swiper-images {
   line-height: 1.6;
   overflow: hidden;
   overflow-y: auto;
+  letter-spacing: 1px;
   border: 1px solid #ddd;
 }

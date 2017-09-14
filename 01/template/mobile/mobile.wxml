@@ -3,7 +3,7 @@
     <form bindsubmit="{{onCodeRequest}}">
       <view class="row row-mobile-number">
         <view class="row-icon">
-          <image src="{{icon}}"></image>
+          <image src="/images/icon/phone.png" />
         </view>
         <view class="row-label" wx:if="{{verified}}">手机号码</view>
         <view class="row-value">

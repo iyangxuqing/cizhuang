@@ -224,20 +224,7 @@ Page({
   saveAnli: function () {
     if (this.hasChanged) {
       let anli = this.data.anli
-      Anlis.set(anli, function (res) {
-        let anlis = Anlis.getAnlisSync()
-        for (let i in anlis) {
-          if (anlis[i].id == anli.id) {
-            anlis[i] = anli
-            break
-          }
-        }
-        if (res.insertId) {
-          anli.id = res.insertId
-          anlis.push(anli)
-        }
-        app.listener.trigger('anlis', anlis)
-      })
+      Anlis.set(anli)
     }
   },
 

@@ -27,13 +27,23 @@ Page({
     })
   },
 
+  onShopUpdate: function (shop) {
+    this.setData({
+      shop: shop
+    })
+    wx.setNavigationBarTitle({
+      title: shop.name,
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    app.listener.on('shop', this.onShopUpdate)
+    this.loading = new Loading()
+    this.loading.show()
     let page = this
-    page.loading = new Loading()
-    page.loading.show()
     Shop.get().then(function (shop) {
       page.setData({
         shop: shop,

@@ -47,6 +47,12 @@ Page({
     })
   },
 
+  onCouponsUpdate: function (coupons) {
+    this.setData({
+      coupons: coupons
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -56,6 +62,7 @@ Page({
     this.mobile = new Mobile()
     app.listener.on('toptip', this.onToptip)
     app.listener.on('userAddressUpdate', this.onUserAddressUpdate)
+    app.listener.on('coupons', this.onCouponsUpdate)
 
     this.loading.show()
     User.getUser({

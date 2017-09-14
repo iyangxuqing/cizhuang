@@ -11,7 +11,7 @@
               <image src="/images/icon/sort-up-white.png" />
             </view>
             <view class="item-sort-down" data-id="{{item.id}}" catchtap="{{onItemSortDown}}">
-              <image src="/images/icon/sort-down-white.png" />
+              <image src="/images/icon/sort-up-white.png" />
             </view>
             <view class="item-delete" data-id="{{item.id}}" catchtap="{{onItemDel}}">
               <image src="/images/icon/delete-white.png" />

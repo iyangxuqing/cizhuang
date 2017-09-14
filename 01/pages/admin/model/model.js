@@ -58,20 +58,7 @@ Page({
   saveModel: function () {
     if (this.hasChanged) {
       let model = this.data.model
-      Models.set(model, function (res) {
-        let models = Models.getModelsSync()
-        for (let i in models) {
-          if (models[i].id == model.id) {
-            models[i] = model
-            break
-          }
-        }
-        if (res.insertId) {
-          model.id = res.insertId
-          models.push(model)
-        }
-        app.listener.trigger('models', models)
-      })
+      Models.set(model)
     }
   },
 

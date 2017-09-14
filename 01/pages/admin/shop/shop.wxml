@@ -12,7 +12,7 @@
   <view class="contacts">
     <view class="row row-phone">
       <view class="icon">
-        <image src="/images/icon/phone_blue.png" />
+        <image src="/images/icon/phone.png" />
       </view>
       <view class="text">
         <input value="{{shop.phone}}" placeholder="输入联系电话" bindblur="onShopPhoneBlur" type="number" />
@@ -20,7 +20,7 @@
     </view>
     <view class="row row-address">
       <view class="icon" catchtap="onAddressMapTap">
-        <image src="/images/icon/map-pin_blue.png" />
+        <image src="/images/icon/map-pin.png" />
       </view>
       <view class="text">
         <input value="{{shop.address}}" placeholder="输入店铺地址" bindblur="onShopAddressBlur" maxlength="30" />

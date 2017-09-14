@@ -41,6 +41,7 @@
   height: 100rpx;
   padding: 30rpx;
   background-color: orange;
+  transform: rotate(180deg);
 }
 
 .item-delete {

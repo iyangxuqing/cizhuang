@@ -36,7 +36,7 @@ function getShop(options = {}) {
   })
 }
 
-function setShop(shop, cb) {
+function setShop(shop) {
   return new Promise(function (resolve, reject) {
     let data = {
       id: shop.id,
@@ -48,19 +48,24 @@ function setShop(shop, cb) {
       latitude: shop.latitude,
       longitude: shop.longitude,
     }
-    http.post({
-      url: 'cz/shop.php?m=set',
-      data: data
-    }).then(function (res) {
-      if (res.errno === 0) {
-        resolve(res)
-        cb && cb(res)
-      } else {
+    if (app.user.role == 'admin') {
+      http.post({
+        url: 'cz/shop.php?m=set',
+        data: data
+      }).then(function (res) {
+        if (res.errno === 0) {
+          resolve(res)
+        } else {
+          reject(res)
+        }
+      }).catch(function (res) {
         reject(res)
-      }
-    }).catch(function (res) {
-      reject(res)
-    })
+      })
+    }
+
+    /* app.shop */
+    app.shop = shop
+    app.listener.trigger('shop', shop)
   })
 }
 

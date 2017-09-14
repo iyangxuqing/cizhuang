@@ -46,10 +46,21 @@ Page({
       })
   },
 
+  onAnlisUpdate: function (anlis) {
+    this.loadAnlis({
+      success: function (anlis) {
+        this.setData({
+          anlis: anlis,
+        })
+      }.bind(this)
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    app.listener.on('anlis', this.onAnlisUpdate)
     this.loading = new Loading()
     this.loading.show()
     this.loadAnlis({

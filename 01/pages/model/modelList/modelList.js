@@ -17,10 +17,30 @@ Page({
     })
   },
 
+  onResourceUpdate: function (resource) {
+    let homeHeadImages = resource['homeHeadImages']
+    homeHeadImages = JSON.parse(homeHeadImages) || []
+    let homeSlogan = resource['homeSlogan']
+    let homeLogo = resource['homeLogo']
+    this.setData({
+      homeHeadImages: homeHeadImages,
+      homeSlogan: homeSlogan,
+      homeLogo: homeLogo
+    })
+  },
+
+  onModelsUpdate: function (models) {
+    this.setData({
+      models: models
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    app.listener.on('resource', this.onResourceUpdate)
+    app.listener.on('models', this.onModelsUpdate)
     this.loading = new Loading()
 
     let page = this

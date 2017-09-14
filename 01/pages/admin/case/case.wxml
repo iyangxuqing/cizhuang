@@ -19,7 +19,7 @@
 
         <view class="item-head">
           <view class="process-time {{editId=='process-'+pIndex+'-time'?'editing':''}}" data-type="time" data-value="{{item.time}}" data-process-index="{{pIndex}}" catchtap="onTimeTap">
-            <text class="{{item.time?'':'empty'}}" space="ensp">{{item.time || '输入时间或说明...'}}</text>
+            <text class="{{item.time?'':'empty'}}">{{item.time || '输入时间或说明...'}}</text>
           </view>
           <view class="process-del" data-process-index="{{pIndex}}" catchtap="onProcessDel">
             <image src="/images/icon/delete.png" />
@@ -27,7 +27,7 @@
         </view>
 
         <view class="process-descs {{editId=='process-'+pIndex+'-descs'?'editing':''}}" data-type="descs" data-value="{{item.descs}}" data-process-index="{{pIndex}}" catchtap="onDescsTap">
-          <text class="{{item.descs?'':'empty'}}" space="ensp">{{item.descs || '输入装修描述...'}}</text>
+          <text class="{{item.descs?'':'empty'}}">{{item.descs || '输入装修描述...'}}</text>
         </view>
 
         <view class="process-images">

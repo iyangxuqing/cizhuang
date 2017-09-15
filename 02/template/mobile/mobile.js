@@ -2,7 +2,6 @@ import { User } from '../../utils/user.js'
 
 let data = {
   mobile: {
-    icon: '/images/icon/address.png',
     codeRequestText: '发送验证码',
     number: '',
     code: '',
@@ -103,10 +102,6 @@ let methods = {
           setTimeout(() => {
             page.setData({
               'mobile.verified': true,
-            })
-            User.setUser({
-              mobileNumber: res.mobile,
-              mobileVerified: res.mobileVerified
             })
           }, 300)
         } else {

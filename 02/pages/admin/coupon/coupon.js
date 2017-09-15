@@ -1,18 +1,14 @@
-let config = require('../../../utils/config.js')
 import { http } from '../../../utils/http.js'
 import { Coupons } from '../../../utils/coupons.js'
 
 let app = getApp()
 
-let hasChanged = false
-
 Page({
 
-  /**
-   * 页面的初始数据
-   */
+  hasChanged: false,
+
   data: {
-    youImageMode: config.youImageMode
+    youImageMode: app.youImageMode
   },
 
   onTitleBlur: function (e) {
@@ -22,7 +18,7 @@ Page({
       this.setData({
         'coupon.title': title
       })
-      hasChanged = true
+      this.hasChanged = true
     }
   },
 
@@ -33,7 +29,7 @@ Page({
       this.setData({
         'coupon.descs': descs
       })
-      hasChanged = true
+      this.hasChanged = true
     }
   },
 
@@ -44,33 +40,20 @@ Page({
       this.setData({
         'coupon.notes': notes
       })
-      hasChanged = true
+      this.hasChanged = true
     }
   },
 
   onImageTap: function (e) {
-    let that = this
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['compressed'],
-      success: function (res) {
-        let tempFilePath = res.tempFilePaths[0]
-        wx.showNavigationBarLoading()
-        http.cosUpload({
-          source: tempFilePath,
-          target: Date.now()
-        }).then(function (res) {
-          if (res.errno === 0) {
-            let image = res.url
-            that.setData({
-              'coupon.image': image,
-            })
-            hasChanged = true
-            wx.hideNavigationBarLoading()
-          }
-        })
-      },
+    let page = this
+    http.chooseImage().then(function (image) {
+      page.setData({
+        'coupon.image': image
+      })
+      page.hasChanged = true
     })
+
+
   },
 
   loadCoupon: function (id) {
@@ -89,7 +72,7 @@ Page({
   },
 
   saveCoupon: function () {
-    if (hasChanged) {
+    if (this.hasChanged) {
       let coupon = this.data.coupon
       Coupons.set(coupon).then(function (res) {
         let coupons = Coupons.getCouponsSync()

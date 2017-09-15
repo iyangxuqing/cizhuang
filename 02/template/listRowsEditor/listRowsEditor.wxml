@@ -11,7 +11,7 @@
               <image src="/images/icon/sort-up-white.png" />
             </view>
             <view class="item-sort-down" data-id="{{item.id}}" catchtap="{{onItemSortDown}}">
-              <image src="/images/icon/sort-down-white.png" />
+              <image src="/images/icon/sort-up-white.png" />
             </view>
             <view class="item-delete" data-id="{{item.id}}" catchtap="{{onItemDel}}">
               <image src="/images/icon/delete-white.png" />
@@ -31,13 +31,8 @@
     <view class="anli-text">
       <view class="anli-title">{{subdistrict}}</view>
       <view class="anli-subTitle">{{houseAddress}}</view>
-      <view class="anli-desc"><text>{{desc}}</text></view>
-      <view class="anli-text-foot">
-        <view class="anli-time">{{time}}</view>
-        <view class="anli-praise">
-          <image src="/images/icon/praise.png"></image>
-        </view>
-      </view>
+      <view class="anli-descs"><text>{{descs}}</text></view>
+      <view class="anli-time">{{time}}</view>
     </view>
   </view>
 </template>

@@ -6,8 +6,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 110rpx;
-  padding: 0 30rpx;
+  min-height: 120rpx;
+  padding: 20rpx 30rpx;
   background-color: #fff;
   margin-bottom: 1px;
 }
@@ -50,8 +50,8 @@
   font-size: 24rpx;
   text-align: center;
   border-radius: 10rpx;
-  color: #4bd4c5;
-  border: 1px solid #4bd4c5;
+  color: #1aad19;
+  border: 1px solid #1aad19;
 }
 
 .message-error {

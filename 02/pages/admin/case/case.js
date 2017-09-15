@@ -1,12 +1,12 @@
-let config = require('../../../utils/config.js')
 import { http } from '../../../utils/http.js'
 import { Anlis } from '../../../utils/anlis.js'
 
 let app = getApp()
-let hasChanged = false
 let imageDeleteTimer = null
 
 Page({
+
+  hasChanged: false,
 
   data: {
     editor: {
@@ -18,7 +18,7 @@ Page({
       value: '',
     },
     editId: '',
-    imagesUrl: config.imagesUrl
+    youImageMode: app.youImageMode,
   },
 
   onSubdistrictBlur: function (e) {
@@ -28,7 +28,7 @@ Page({
       this.setData({
         'anli.subdistrict': value
       })
-      hasChanged = true
+      this.hasChanged = true
     }
   },
 
@@ -39,18 +39,18 @@ Page({
       this.setData({
         'anli.houseAddress': value
       })
-      hasChanged = true
+      this.hasChanged = true
     }
   },
 
   onProcessAdd: function (e) {
     let time = new Date().Format("yyyy-MM-dd");
     let anli = this.data.anli
-    if (anli.process.length && anli.process[0].desc == '' && anli.process[0].images.length == 0) return
+    if (anli.process.length && anli.process[0].descs == '' && anli.process[0].images.length == 0) return
 
     anli.process.unshift({
       time: time,
-      desc: '',
+      descs: '',
       images: []
     })
     this.setData({
@@ -65,7 +65,7 @@ Page({
     this.setData({
       anli: anli
     })
-    hasChanged = true
+    this.hasChanged = true
   },
 
   onImageTap: function (e) {
@@ -74,30 +74,14 @@ Page({
     let anli = this.data.anli
     let images = anli.process[pIndex].images
     let that = this
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['compressed'],
-      success: function (res) {
-        let tempFilePath = res.tempFilePaths[0]
-        if (index == '-1') {
-          index = images.length
-          images.push('')
-        }
-        wx.showNavigationBarLoading()
-        http.cosUpload({
-          source: tempFilePath,
-          target: Date.now()
-        }).then(function (res) {
-          if (res.errno === 0) {
-            images[index] = res.url
-            that.setData({
-              'anli': anli,
-            })
-            hasChanged = true
-            wx.hideNavigationBarLoading()
-          }
-        })
-      },
+    http.chooseImage().then(function (image) {
+      if (index == -1) {
+        index = images.length
+        images.push('')
+      }
+      images[index] = image
+      that.setData({ anli })
+      that.hasChanged = true
     })
   },
 
@@ -106,7 +90,7 @@ Page({
     let imageIndex = e.currentTarget.dataset.imageIndex
     let delImageIndex = 'del-' + processIndex + '-' + imageIndex
     this.setData({ delImageIndex })
-    
+
     clearTimeout(imageDeleteTimer)
     imageDeleteTimer = setTimeout(function () {
       this.setData({ delImageIndex: -1 })
@@ -122,7 +106,7 @@ Page({
       delImageIndex: -1,
       anli: anli
     })
-    hasChanged = true
+    this.hasChanged = true
   },
 
   onTimeTap: function (e) {
@@ -159,7 +143,7 @@ Page({
     }.bind(this), 0)
   },
 
-  onDescTap: function (e) {
+  onDescsTap: function (e) {
     if (this.data.editor.left >= 0) {
       this.setData({
         'editId': '',
@@ -175,7 +159,7 @@ Page({
     let value = e.currentTarget.dataset.value
     let processIndex = e.currentTarget.dataset.processIndex
     let placeholder = '输入装修描述...'
-    let editId = 'process-' + processIndex + '-desc'
+    let editId = 'process-' + processIndex + '-descs'
     this.setData({
       editId: editId,
       'editor.blur': false,
@@ -214,7 +198,7 @@ Page({
     let anli = this.data.anli
     anli.process[processIndex][type] = value
     this.setData({ anli: anli })
-    hasChanged = true
+    this.hasChanged = true
   },
 
   loadAnli: function (options = {}) {
@@ -225,7 +209,7 @@ Page({
       houseAddress: '',
       process: [{
         time: new Date().Format('yyyy-MM-dd'),
-        desc: '',
+        descs: '',
         images: [],
         sort: 9999
       }],
@@ -238,22 +222,9 @@ Page({
   },
 
   saveAnli: function () {
-    if (hasChanged) {
+    if (this.hasChanged) {
       let anli = this.data.anli
-      Anlis.set(anli, function (res) {
-        let anlis = Anlis.getAnlisSync()
-        for (let i in anlis) {
-          if (anlis[i].id == anli.id) {
-            anlis[i] = anli
-            break
-          }
-        }
-        if (res.insertId) {
-          anli.id = res.insertId
-          anlis.push(anli)
-        }
-        app.listener.trigger('anlis', anlis)
-      })
+      Anlis.set(anli)
     }
   },
 
@@ -266,7 +237,6 @@ Page({
     this.setData({ platform })
 
     let anli = this.loadAnli(options)
-    hasChanged = false
     this.setData({
       anli: anli
     })

@@ -11,31 +11,16 @@ let methods = {
     let images = page.data.swiperImagesEditor.images
 
     let self = this
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['compressed'],
-      success: function (res) {
-        let tempFilePath = res.tempFilePaths[0]
-        if (index == -1) {
-          index = images.length
-          images.push('')
-        }
-        wx.showNavigationBarLoading()
-        http.cosUpload({
-          source: tempFilePath,
-          target: Date.now()
-        }).then(function (res) {
-          if (res.errno === 0) {
-            images[index] = res.url
-            page.setData({
-              'swiperImagesEditor.images': images,
-            })
-            wx.hideNavigationBarLoading()
-            self.imagesChanged = true
-            self.onImagesChanged && self.onImagesChanged(images)
-          }
-        })
+    http.chooseImage().then(function (image) {
+      if (index == -1) {
+        index = images.length
+        images.push('')
       }
+      images[index] = image
+      page.setData({
+        'swiperImagesEditor.images': images
+      })
+      self.onImagesChanged && self.onImagesChanged(images)
     })
   },
 
@@ -48,7 +33,6 @@ let methods = {
       'swiperImagesEditor.images': images,
       'swiperImagesEditor.delImageIndex': -1
     })
-    this.imagesChanged = true
     this.onImagesChanged && this.onImagesChanged(images)
   },
 

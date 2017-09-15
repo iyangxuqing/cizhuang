@@ -1,4 +1,3 @@
-let config = require('../../../utils/config.js')
 import { http } from '../../../utils/http.js'
 import { Shop } from '../../../utils/shop.js'
 
@@ -9,7 +8,7 @@ Page({
   hasChanged: false,
 
   data: {
-    youImageMode: config.youImageMode,
+    youImageMode: app.youImageMode,
   },
 
   onShopNameBlur: function (e) {
@@ -45,29 +44,9 @@ Page({
     }
   },
 
-  chooseImage: function (cb) {
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['compressed'],
-      success: function (res) {
-        let tempFilePath = res.tempFilePaths[0]
-        wx.showNavigationBarLoading()
-        http.cosUpload({
-          source: tempFilePath,
-          target: Date.now()
-        }).then(function (res) {
-          if (res.errno === 0) {
-            cb && cb(res.url)
-            wx.hideNavigationBarLoading()
-          }
-        })
-      },
-    })
-  },
-
   onShopLogoTap: function (e) {
     let page = this
-    page.chooseImage(function (image) {
+    http.chooseImage().then(function (image) {
       page.setData({
         'shop.logo': image
       })
@@ -77,9 +56,9 @@ Page({
 
   onShopImageTap: function (e) {
     let index = e.currentTarget.dataset.index
+    let images = this.data.shop.images
     let page = this
-    let images = page.data.shop.images
-    page.chooseImage(function (image) {
+    http.chooseImage().then(function(image){
       images[index] = image
       page.setData({
         'shop.images': images

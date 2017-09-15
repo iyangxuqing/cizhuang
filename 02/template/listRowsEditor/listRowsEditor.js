@@ -73,15 +73,15 @@ let methods = {
       items[index] = items[index - 1]
       items[index - 1] = temp
       this.onItemSort && this.onItemSort(items, this.sort)
-      if (this.sort == 'desc') {
-        for (let i in items) {
-          items[i].sort = items.length - i
-        }
-      } else {
-        for (let i in items) {
-          items[i].sort = i
-        }
-      }
+      // if (this.sort == 'desc') {
+      //   for (let i in items) {
+      //     items[i].sort = items.length - i
+      //   }
+      // } else {
+      //   for (let i in items) {
+      //     items[i].sort = i
+      //   }
+      // }
     }
     page.setData({
       'listRowsEditor.swipeLeftId': '',
@@ -105,15 +105,15 @@ let methods = {
       items[index] = items[Number(index) + 1]
       items[Number(index) + 1] = temp
       this.onItemSort && this.onItemSort(items, this.sort)
-      if (this.sort == 'desc') {
-        for (let i in items) {
-          items[i].sort = items.length - i
-        }
-      } else {
-        for (let i in items) {
-          items[i].sort = i
-        }
-      }
+      // if (this.sort == 'desc') {
+      //   for (let i in items) {
+      //     items[i].sort = items.length - i
+      //   }
+      // } else {
+      //   for (let i in items) {
+      //     items[i].sort = i
+      //   }
+      // }
     }
     page.setData({
       'listRowsEditor.swipeLeftId': '',

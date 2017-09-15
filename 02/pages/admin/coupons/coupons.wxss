@@ -2,8 +2,6 @@
 
 .container {
   padding: 30rpx;
-  padding-left: 30rpx;
-  padding-right: 30rpx;
 }
 
 .coupon-add {
@@ -11,7 +9,7 @@
   align-items: center;
   height: 80rpx;
   font-size: 1.2em;
-  background-color: #f2f2f2;
+  background-color: #eee;
   margin-bottom: 30rpx;
 }
 
@@ -27,8 +25,4 @@
   padding: 30rpx;
   margin-right: -10rpx;
   transform: rotate(45deg);
-}
-
-.coupons {
-  margin-bottom: 400rpx;  
 }

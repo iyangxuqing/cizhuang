@@ -13,12 +13,16 @@
           {{region[0]}}{{region[1]}}{{region[2]}}
         </picker>
       </view>
-      <view class="icon icon-address-citys"></view>
+      <view class="icon icon-address-citys">
+        <image src="/images/icon/address-pin.png" />
+      </view>
     </view>
     <view class="row row-address-detail">
       <view class="address-detail-label">详细地址</view>
-      <input class="address-detail-input" name="addressDetail" value="{{addressDetail}}" placeholder="街道门牌信息" />
-      <view class="icon icon-address-detail"></view>
+      <input class="address-detail-input" name="addressDetail" value="{{addressDetail}}" placeholder="街道门牌信息" maxlength="20" />
+      <view class="icon icon-address-detail">
+        <image src="/images/icon/address-pin.png" />
+      </view>
     </view>
     <view class="row row-address-buttons">
       <button class="address-button address-button-confirm" hover-class="address-button-confirm-hover" formType="submit">保 存</button>

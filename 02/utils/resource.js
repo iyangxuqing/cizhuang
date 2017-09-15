@@ -25,44 +25,30 @@ function getResource(options = {}) {
   })
 }
 
-function setResource(resource, cb) {
+function setResource(resource) {
   return new Promise(function (resolve, reject) {
-    http.post({
-      url: 'cz/resource.php?m=set',
-      data: resource
-    }).then(function (res) {
-      if (res.errno === 0) {
-        resolve(res)
-        cb && cb(res)
-      } else {
+    if (app.user.role == 'admin') {
+      http.post({
+        url: 'cz/resource.php?m=set',
+        data: resource
+      }).then(function (res) {
+        if (res.errno === 0) {
+          resolve(res)
+        } else {
+          reject(res)
+        }
+      }).catch(function (res) {
         reject(res)
-      }
-    }).catch(function (res) {
-      reject(res)
-    })
-  })
-}
-
-function delResource(resource) {
-  return new Promise(function (resolve, reject) {
-    http.post({
-      url: 'cz/resource.php?m=del',
-      data: resource
-    }).then(function (res) {
-      if (res.errno === 0) {
-        resolve(res)
-        cb && cb(res)
-      } else {
-        reject(res)
-      }
-    }).catch(function (res) {
-      reject(res)
-    })
+      })
+    }
+    let data = {}
+    data[resource.key] = resource.value
+    app.resource = Object.assign({}, app.resource, data)
+    app.listener.trigger('resource', app.resource)
   })
 }
 
 export var Resource = {
   get: getResource,
   set: setResource,
-  del: delResource,
 }

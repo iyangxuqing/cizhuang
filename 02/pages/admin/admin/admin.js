@@ -1,4 +1,3 @@
-// pages/admin/admin/admin.js
 Page({
 
   /**

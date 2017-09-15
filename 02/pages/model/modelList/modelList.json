@@ -1,7 +1,4 @@
 {
-  "backgroundTextStyle": "dark",
-  "navigationBarBackgroundColor": "#eee",
-  "navigationBarTextStyle": "black",
   "navigationBarTitleText": "样板房",
   "enablePullDownRefresh": true
 }

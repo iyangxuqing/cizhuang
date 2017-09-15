@@ -10,10 +10,10 @@ function get(options) {
         'Content-Type': 'application/json',
         'token': wx.getStorageSync('token'),
       },
-      data: escape(options.data),
+      data: options.data,
       success: function (res) {
         if (res.data && res.data.errno === 0) {
-          resolve(unescape(res.data))
+          resolve(res.data)
         } else {
           reject(res)
         }
@@ -36,10 +36,10 @@ function post(options) {
         "Content-Type": "application/x-www-form-urlencoded",
         'token': wx.getStorageSync('token'),
       },
-      data: escape(options.data),
+      data: options.data,
       success: function (res) {
         if (res.data && res.data.errno === 0) {
-          resolve(unescape(res.data))
+          resolve(res.data)
         } else {
           reject(res)
         }
@@ -49,28 +49,6 @@ function post(options) {
       }
     })
   })
-}
-
-function escape(object) {
-  if (!object) return
-  let obj = JSON.stringify(object, function (key, value) {
-    if (typeof value == 'string') {
-      value = value.replace(/'/g, "u0027")
-    }
-    return value
-  })
-  return JSON.parse(obj)
-}
-
-function unescape(object) {
-  if (!object) return
-  let obj = JSON.stringify(object, function (key, value) {
-    if (typeof value == 'string') {
-      value = value.replace(/u0027/g, "'")
-    }
-    return value
-  })
-  return JSON.parse(obj)
 }
 
 /**
@@ -162,11 +140,38 @@ function cosDelete(options) {
   })
 }
 
+function chooseImage() {
+  return new Promise(function (resolve, reject) {
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['compressed'],
+      success: function (res) {
+        let tempFilePath = res.tempFilePaths[0]
+        wx.showNavigationBarLoading()
+        http.cosUpload({
+          source: tempFilePath,
+          target: Date.now()
+        }).then(function (res) {
+          if (res.errno === 0) {
+            resolve(res.url)
+            wx.hideNavigationBarLoading()
+          } else {
+            reject(res)
+            wx.hideNavigationBarLoading()
+          }
+        }).catch(function (res) {
+          reject(res)
+          wx.hideNavigationBarLoading()
+        })
+      },
+    })
+  })
+}
+
 export var http = {
   get: get,
   post: post,
   cosUpload: cosUpload,
   cosDelete: cosDelete,
-  escape: escape,
-  unescape: unescape,
+  chooseImage: chooseImage,
 }

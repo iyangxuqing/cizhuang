@@ -1,6 +1,4 @@
-let config = require('../../../utils/config.js')
 import { Anlis } from '../../../utils/anlis.js'
-
 import { ListRowsEditor } from '../../../template/listRowsEditor/listRowsEditor.js'
 
 let app = getApp()
@@ -11,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    youImageMode: config.youImageMode
+    youImageMode: app.youImageMode
   },
 
   onAnliAdd: function (e) {
@@ -37,12 +35,14 @@ Page({
         for (let i in anlis) {
           let last = {
             time: '',
-            desc: '',
+            descs: '',
             images: []
           }
+
+          //fix me 因为anlis[i].process可能为null
           if (anlis[i].process.length) last = anlis[i].process[0]
           anlis[i].time = last.time
-          anlis[i].desc = last.desc
+          anlis[i].descs = last.descs
           anlis[i].image = ''
           if (last.images.length) anlis[i].image = last.images[0]
         }
@@ -67,7 +67,11 @@ Page({
   },
 
   onItemSort: function (items) {
-    Anlis.sort(items)
+    let anlis = []
+    for(let i in items){
+      anlis[i] = items[items.length - i - 1]
+    }
+    Anlis.sort(anlis)
   },
 
   /**

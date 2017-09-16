@@ -14,12 +14,16 @@ Page({
    */
   onLoad: function (options) {
     User.getUserData().then(function (userInfos) {
+      let _userInfos = []
       for (let i in userInfos) {
-        let time = new Date(userInfos[i].created * 1000)
-        userInfos[i].time = time.Format('yyyy-MM-dd hh:mm:ss')
+        let userInfo = userInfos[i]
+        if (!userInfo.avatarUrl && !userInfo.mobileNumber) continue
+        let time = new Date(userInfo.created * 1000)
+        userInfo.time = time.Format('yyyy-MM-dd hh:mm:ss')
+        _userInfos.push(userInfo)
       }
       this.setData({
-        userInfos: userInfos
+        userInfos: _userInfos
       })
     }.bind(this))
   },

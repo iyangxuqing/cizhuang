@@ -21,9 +21,11 @@ Page({
     let id = e.currentTarget.dataset.id
     let datavers = this.data.datavers
     let sid = ''
+    let name = ''
     for (let i in datavers) {
       if (datavers[i].id == id) {
         sid = datavers[i].sid
+        name = datavers[i].name
         datavers[i].active = 1
       } else {
         datavers[i].active = 0
@@ -32,6 +34,9 @@ Page({
 
     wx.setStorageSync('sid', sid)
     this.setData({ datavers })
+    wx.setNavigationBarTitle({
+      title: name,
+    })
     app.listener.trigger('dataver', sid)
   },
 
@@ -71,15 +76,20 @@ Page({
     let sid = wx.getStorageSync('sid')
     DataVers.get().then(function (datavers) {
       datavers[0].active = 1
+      let index = -1
       for (let i in datavers) {
         if (datavers[i].sid == sid) {
-          datavers[i].active = 1
-        } else {
-          datavers[i].active = 0
+          index = i
         }
+        datavers[i].active = 0
       }
+      if (index < 0) index = 0;
+      datavers[index].active = 1
       this.setData({
         datavers: datavers
+      })
+      wx.setNavigationBarTitle({
+        title: datavers[index].name,
       })
     }.bind(this))
 

@@ -23,6 +23,7 @@ Page({
   },
 
   onLoad: function (options) {
+    if (options.sid) wx.setStorageSync('sid', options.sid)
     let id = options.id
     let anli = {}
     let anlis = Anlis.getAnlisSync()
@@ -86,6 +87,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    let sid = wx.getStorageSync('sid')
+    return {
+      path: '/pages/case/caseDetail/caseDetail?sid=' + sid
+    }
   }
 })

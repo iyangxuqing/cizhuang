@@ -1,3 +1,5 @@
+import { User } from '../../../utils/user.js'
+
 Page({
 
   /**
@@ -7,55 +9,19 @@ Page({
 
   },
 
-  onAdminModelTap: function (e) {
-    wx.navigateTo({
-      url: '../models/models',
-    })
-  },
-
-  onAdminAnliTap: function (e) {
-    wx.navigateTo({
-      url: '../cases/cases',
-    })
-  },
-
-  onAdminCouponTap: function (e) {
-    wx.navigateTo({
-      url: '../coupons/coupons',
-    })
-  },
-
-  onAdminShopTap: function (e) {
-    wx.navigateTo({
-      url: '../shop/shop',
-    })
-  },
-
-  onUserDataTap: function (e) {
-    wx.navigateTo({
-      url: '../userData/userData'
-    })
-  },
-
-  onDataVerTap: function (e) {
-    wx.navigateTo({
-      url: '../dataVer/dataVer',
-    })
-  },
-
-  onDataVerShow: function (e) {
-    this.setData({
-      dataverShow: true
-    })
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      dataverShow: false
-    })
+    User.getUserData().then(function (userInfos) {
+      for (let i in userInfos) {
+        let time = new Date(userInfos[i].created * 1000)
+        userInfos[i].time = time.Format('yyyy-MM-dd hh:mm:ss')
+      }
+      this.setData({
+        userInfos: userInfos
+      })
+    }.bind(this))
   },
 
   /**
@@ -69,9 +35,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      dataverShow: false
-    })
+
   },
 
   /**

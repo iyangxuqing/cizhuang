@@ -1,0 +1,76 @@
+page {
+  padding: 30rpx;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  height: 240rpx;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.userInfo:first-child{
+  border-top: 1px solid #ddd;
+}
+
+.left{
+  width: 200rpx;
+  height: 100%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+}
+
+.right{
+  flex-grow: 1;
+  padding: 20rpx;
+}
+
+.avatar{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.nickName{
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 0.85em;
+}
+
+.address{
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+  font-size: 0.9em;
+  color: #333;
+}
+
+.phone{
+  display: flex;
+  align-items: center;
+  height: 90rpx;
+  font-size: 1em;
+  padding-left: 36rpx;
+  background-image: url(http://image-1253299728.cossh.myqcloud.com/icon/mobile.png), url(http://image-1253299728.cossh.myqcloud.com/icon/check.png);
+  background-repeat: no-repeat, no-repeat;
+  background-size: 40rpx 48rpx, 40rpx;
+  background-position: -6rpx 50%, 95% 50%;
+}
+
+.time{
+  display: flex;
+  align-items: center;
+  height: 20rpx;
+  font-size: 0.9em;
+  color: #666;
+}
+
+

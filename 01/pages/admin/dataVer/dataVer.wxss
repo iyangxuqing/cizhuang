@@ -1,0 +1,35 @@
+page {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.datavers {
+  margin-top: 30rpx;
+}
+
+.dataver {
+  display: flex;
+  align-items: center;
+  height: 110rpx;
+  padding: 20rpx;
+  border-bottom: 1px solid #ddd;
+}
+
+.dataver:first-child {
+  border-top: 1px solid #ddd;
+}
+
+.dataver.active {
+  color: blue;
+}
+
+.dataver .text {
+  flex-grow: 1;
+}
+
+.dataver .icon {
+  width: 100rpx;
+  height: 100rpx;
+  flex-shrink: 0;
+  padding: 20rpx;
+}

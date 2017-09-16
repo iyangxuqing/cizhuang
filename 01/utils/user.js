@@ -73,10 +73,27 @@ function mobileCodeVerify(mobile, code) {
   })
 }
 
+function getUserData() {
+  return new Promise(function (resolve, reject) {
+    http.get({
+      url: 'cz/userData.php?m=get',
+    }).then(function (res) {
+      if (res.errno === 0) {
+        resolve(res.users)
+      } else {
+        reject(res)
+      }
+    }).catch(function (res) {
+      reject(res)
+    })
+  })
+}
+
 export var User = {
   login: login,
   getUser: getUser,
   setUser: setUser,
   mobileCodeRequest: mobileCodeRequest,
   mobileCodeVerify: mobileCodeVerify,
+  getUserData: getUserData,
 }

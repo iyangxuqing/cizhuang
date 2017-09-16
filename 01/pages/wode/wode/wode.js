@@ -41,6 +41,21 @@ Page({
     })
   },
 
+  onUserUpdate: function (user) {
+    this.setData({
+      'userInfo.nickName': user.nickName,
+      'userInfo.avatarUrl': user.avatarUrl,
+      'mobile.number': user.mobileNumber,
+      'mobile.verified': user.mobileVerified == '1',
+      address: {
+        province: user.address_province,
+        city: user.address_city,
+        district: user.address_district,
+        detail: user.address_detail
+      },
+    })
+  },
+
   onUserAddressUpdate: function (address) {
     this.setData({
       address,
@@ -57,10 +72,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (options.sid) wx.setStorageSync('sid', options.sid)
     this.loading = new Loading()
     this.toptip = new Toptip()
     this.mobile = new Mobile()
     app.listener.on('toptip', this.onToptip)
+    app.listener.on('user', this.onUserUpdate)
     app.listener.on('userAddressUpdate', this.onUserAddressUpdate)
     app.listener.on('coupons', this.onCouponsUpdate)
 
@@ -138,6 +155,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    let sid = wx.getStorageSync('sid')
+    return {
+      path: '/pages/wode/wode/wode?sid=' + sid
+    }
   }
 })

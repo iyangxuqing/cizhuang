@@ -40,6 +40,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (options.sid) wx.setStorageSync('sid', options.sid)
     app.listener.on('shop', this.onShopUpdate)
     this.loading = new Loading()
     this.loading.show()
@@ -113,6 +114,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    let sid = wx.getStorageSync('sid')
+    return {
+      path: '/pages/shop/shop?sid=' + sid
+    }
   }
 })

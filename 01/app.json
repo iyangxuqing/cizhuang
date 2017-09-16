@@ -1,16 +1,12 @@
 {
   "pages": [
-
     "pages/model/modelList/modelList",
     "pages/model/modelDetail/modelDetail",
-
     "pages/case/caseList/caseList",
     "pages/case/caseDetail/caseDetail",
-
     "pages/shop/shop",
     "pages/wode/wode/wode",
     "pages/wode/addressEditor/addressEditor",
-    
     "pages/admin/admin/admin",
     "pages/admin/models/models",
     "pages/admin/model/model",
@@ -18,15 +14,15 @@
     "pages/admin/case/case",
     "pages/admin/coupons/coupons",
     "pages/admin/coupon/coupon",
-    "pages/admin/shop/shop"
+    "pages/admin/shop/shop",
+    "pages/admin/userData/userData",
+    "pages/admin/dataVer/dataVer"
   ],
-
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarTextStyle": "black",
     "navigationBarBackgroundColor": "#f2f2f2"
   },
-
   "tabBar": {
     "color": "#999",
     "selectedColor": "#09bb08",
@@ -65,9 +61,7 @@
       }
     ]
   },
-
   "networkTimeout": {
     "request": 30000
   }
-
 }

@@ -5,9 +5,9 @@ function get(options) {
     wx.request({
       url: config.apiUrl + options.url,
       header: {
-        'sid': config.sid,
         'ver': config.version,
         'Content-Type': 'application/json',
+        'sid': wx.getStorageSync('sid'),
         'token': wx.getStorageSync('token'),
       },
       data: options.data,
@@ -31,9 +31,9 @@ function post(options) {
       url: config.apiUrl + options.url,
       method: 'POST',
       header: {
-        'sid': config.sid,
         'ver': config.version,
         "Content-Type": "application/x-www-form-urlencoded",
+        'sid': wx.getStorageSync('sid'),
         'token': wx.getStorageSync('token'),
       },
       data: options.data,
@@ -61,7 +61,8 @@ function cosUpload(options) {
   return new Promise(function (resolve, reject) {
     let source = options.source
     let extension = source.split('.').pop()
-    let target = config.sid + '/' + options.target + '.' + extension
+    let sid = wx.getStorageSync('sid')
+    let target = sid + '/' + options.target + '.' + extension
     http.get({
       url: 'cz/cos.php?m=signature',
       data: { filename: target }

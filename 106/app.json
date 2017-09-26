@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/commodity/commodity",
+    "pages/shop/shop",
+    "pages/ceshi/ceshi",
+   
+    "pages/wode/wode/wode",
+    
+    "pages/model/modelList/modelList",
+    "pages/model/modelDetail/modelDetail",
+    "pages/case/caseList/caseList",
+    "pages/case/caseDetail2/caseDetail",
+    "pages/case/caseProcess/caseProcess",
+    "pages/case/caseDetail/caseDetail",
+   
+    "pages/wode/addressEditor/addressEditor"
+  ],
+
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f4f4f4",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black"
+  },
+
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#46c01b",
+    "backgroundColor": "#f4f4f4",
+    "borderStyle": "black",
+    "list": [
+          {
+            "pagePath": "pages/shop/shop",
+            "text": "店铺信息",
+            "iconPath": "images/tab/05/shop.png",
+            "selectedIconPath": "images/tab/04/shop.png"
+          },
+      {
+        "pagePath": "pages/commodity/commodity",
+        "text": "商品展览",
+        "iconPath": "images/tab/05/home.png",
+        "selectedIconPath": "images/tab/04/home.png"
+      },
+
+      {
+        "pagePath": "pages/wode/wode/wode",
+        "text": "我的优惠",
+        "iconPath": "images/tab/05/user.png",
+        "selectedIconPath": "images/tab/04/user.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000
+  }
+}

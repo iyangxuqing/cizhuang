@@ -1,0 +1,11 @@
+<template name="toolbaree">
+  <view class="tabs" wx:if="{{tabs}}">
+     <block wx:for="{{tabs}}" wx:key=""> 
+       <view class="tab" data-index="{{index}}" catchtap="{{onTabTap}}"> 
+         <view class="icon" wx:if="{{index!=activeIndex}}"><image src="{{item.icon}}" /></view> 
+         <view class="icon" wx:if="{{index==activeIndex}}"><image src="{{item.activeIcon}}" /></view> 
+         <view class="text {{index==activeIndex ? 'active' : ''}}">{{item.text}}</view> 
+       </view> 
+     </block> 
+  </view>
+</template>

@@ -1,0 +1,29 @@
+@import '/template/loading/loading.wxss';
+@import '/template/swiperImagesEditor/swiperImagesEditor.wxss';
+@import '/template/listGridEditor/listGridEditor.wxss';
+
+.homeHeadImages {
+  height: 400rpx;
+}
+
+.homeSlogan {
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.homeSlogan input {
+  width: 100%;
+}
+
+.homeLogo {
+  height: 80rpx;
+  background-color: #f2f2f2;
+  margin-bottom: 30rpx;
+}
+
+.models {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}

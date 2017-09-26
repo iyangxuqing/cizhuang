@@ -1,0 +1,28 @@
+<view class="container" wx:if="{{ready}}">
+
+  <view class="head">
+    <swiper class="head-images">
+      <block wx:for="{{modelHead.images}}" wx:key="">
+        <swiper-item data-index="{{index}}">
+          <image src="{{imagesUrl + item}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="head-title">{{modelHead.title}}</view>
+    <view class="head-logo">
+      <image src="{{modelHead.logo ? imagesUrl + modelHead.logo : ''}}" mode="widthFix"></image>
+    </view>
+  </view>
+
+  <view class="list">
+    <block wx:for="{{models}}" wx:key="">
+      <view class="item" data-id="{{item.id}}" catchtap="onItemTap">
+        <view class="thumb">
+          <image src="{{imagesUrl + item.images[0]}}"></image>
+        </view>
+        <view class="title">{{item.title}}</view>
+      </view>
+    </block>
+  </view>
+
+</view>

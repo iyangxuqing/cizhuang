@@ -1,0 +1,46 @@
+.container {
+  height: 100%;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.head {
+  margin-left: -30rpx;
+  margin-right: -30rpx;
+  margin-bottom: 40rpx;
+}
+
+.swiper-models{
+  height: 100%;
+}
+
+.swiper-model-images {
+  height: 600rpx;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.title-line {
+  width: 100%;
+  height: 2rpx;
+  background: #ccc;
+}
+
+.title-text {
+  flex-shrink: 0;
+  font-size: 36rpx;
+  padding: 0 20rpx;
+}
+
+.desc {
+  line-height: 1.6;
+  text-indent: 2em;
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 200rpx;
+}

@@ -1,0 +1,28 @@
+@import '/template/listRowsEditor/listRowsEditor.wxss';
+
+.container {
+  padding: 30rpx;
+}
+
+.coupon-add {
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+  font-size: 1.2em;
+  background-color: #eee;
+  margin-bottom: 30rpx;
+}
+
+.coupon-add-text {
+  flex-grow: 1;
+  padding-left: 20rpx;
+}
+
+.coupon-add-icon {
+  width: 100rpx;
+  height: 100rpx;
+  flex-shrink: 0;
+  padding: 30rpx;
+  margin-right: -10rpx;
+  transform: rotate(45deg);
+}

@@ -79,7 +79,7 @@ Page({
         onItemDel: page.onGridItemDel,
         onItemSort: page.onGridItemSort
       })
-      let homeHeadImages = resource['homeHeadImages'] || '[]'
+      let homeHeadImages = resource['homeHeadImages']
       homeHeadImages = JSON.parse(homeHeadImages) || []
       let homeSlogan = resource['homeSlogan']
       let homeLogo = resource['homeLogo']

@@ -1,0 +1,28 @@
+<view class="container" wx:if="{{ready}}">
+
+  <swiper current="{{current}}">
+    <block wx:for="{{cases}}" wx:key="" wx:for-item="case">
+      <swiper-item>
+        <view class="case">
+          <view class="head">
+            <view class="title">{{case.style}} - {{case.subdistrict}}</view>
+          </view>
+          <view class="list">
+            <block wx:for="{{case.process}}" wx:key="">
+              <view class="item" catchtap="onItemTap" data-id="{{case.id}}" data-index="{{index}}">
+                <view class="text">
+                  <view class="time" wx:if="{{item.time}}">{{item.time}}</view>
+                  <view class="desc">{{item.desc}}</view>
+                </view>
+                <view class="image">
+                  <image src="/images/icon/camera-golden.png"></image>
+                </view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+</view>

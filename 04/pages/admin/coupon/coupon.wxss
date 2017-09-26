@@ -1,0 +1,39 @@
+.coupon {
+  padding: 30rpx;
+}
+
+.coupon-label{
+  height: 60rpx;
+  line-height: 60rpx;
+  padding-left: 20rpx;
+  letter-spacing: 20rpx;
+  background-color: #ddd;
+}
+
+.coupon-value {
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  background-color: #f2f2f2;
+  margin-bottom: 20rpx;
+}
+
+input {
+  width: 100%;
+}
+
+.coupon-image {
+  width: 210rpx;
+  height: 210rpx;
+  border: 1px solid #ddd;
+  margin-top: 20rpx;
+}
+
+.coupon-image.empty{
+  background-image: url('/images/icon/camera.png');
+  background-repeat: no-repeat;
+  background-size: 120rpx;
+  background-position: center;
+}

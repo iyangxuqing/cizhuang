@@ -1,0 +1,24 @@
+<import src="/template/loading/loading.wxml" />
+<template is="loading" data="{{...loading}}" />
+<import src="/template/swiperImagesEditor/swiperImagesEditor.wxml" />
+<import src="/template/listGridEditor/listGridEditor.wxml" />
+
+<view class="container" wx:if="{{ready}}">
+
+  <view class="homeHeadImages">
+    <template is="swiper-images-editor" data="{{...swiperImagesEditor, youImageMode}}" />
+  </view>
+
+  <view class="homeSlogan">
+    <input value="{{homeSlogan}}" placeholder="输入企业格言标语" bindblur="onHomeSloganBlur" />
+  </view>
+
+  <view class="homeLogo" catchtap="onHomeLogoTap">
+    <image src="{{homeLogo}}" mode="aspectFill" />
+  </view>
+
+  <view class="models">
+    <template is="list-grid-editor" data="{{...listGridEditor, youImageMode}}" />
+  </view>
+
+</view>

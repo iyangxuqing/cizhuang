@@ -1,0 +1,16 @@
+<import src="/template/listRowsEditor/listRowsEditor.wxml" />
+
+<view class="container" wx:if="{{ready}}">
+
+  <view class="coupon-add">
+    <view class="coupon-add-text">新增优惠券</view>
+    <view class="coupon-add-icon" catchtap="onCouponAdd">
+      <image src="/images/icon/delete.png" />
+    </view>
+  </view>
+
+  <view class="coupons">
+    <template is="listRowsEditor" data="{{...listRowsEditor, youImageMode}}" />
+  </view>
+
+</view>

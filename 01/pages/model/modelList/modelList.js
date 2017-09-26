@@ -18,7 +18,7 @@ Page({
   },
 
   onResourceUpdate: function (resource) {
-    let homeHeadImages = resource['homeHeadImages'] || '[]'
+    let homeHeadImages = resource['homeHeadImages']
     homeHeadImages = JSON.parse(homeHeadImages) || []
     let homeSlogan = resource['homeSlogan']
     let homeLogo = resource['homeLogo']
@@ -39,8 +39,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.sid) wx.setStorageSync('sid', options.sid)
-    
     app.listener.on('resource', this.onResourceUpdate)
     app.listener.on('models', this.onModelsUpdate)
     this.loading = new Loading()
@@ -50,7 +48,7 @@ Page({
     Promise.all([Models.getModels(), Resource.get()]).then(function (res) {
       let models = res[0]
       let resource = res[1]
-      let homeHeadImages = resource['homeHeadImages'] || '[]'
+      let homeHeadImages = resource['homeHeadImages']
       homeHeadImages = JSON.parse(homeHeadImages) || []
       let homeSlogan = resource['homeSlogan']
       let homeLogo = resource['homeLogo']
@@ -127,9 +125,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    let sid = wx.getStorageSync('sid')
-    return {
-      path: '/pages/model/modelList/modelList?sid=' + sid
-    }
+
   }
 })

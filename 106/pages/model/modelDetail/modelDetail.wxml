@@ -1,0 +1,28 @@
+<view class="container" wx:if="{{ready}}">
+
+  <swiper class="swiper-models" current="{{current}}" bindchange="onSwiperChange">
+    <block wx:for="{{models}}" wx:key="" wx:for-item="model">
+      <swiper-item>
+        <view class="model">
+          <view class="head">
+            <swiper class="swiper-model-images" indicator-dots="true">
+              <block wx:for="{{model.images}}" wx:key="" wx:for-item="image">
+                <swiper-item>
+                  <image src="{{imagesUrl+image}}"></image>
+                </swiper-item>
+              </block>
+            </swiper>
+          </view>
+          <view class="title">
+            <view class="title-line"></view>
+            <view class="title-text">{{model.title}}</view>
+            <view class="title-line"></view>
+          </view>
+          <view class="desc">{{model.descs[0]}}</view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+
+</view>

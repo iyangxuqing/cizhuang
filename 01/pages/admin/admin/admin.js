@@ -31,31 +31,11 @@ Page({
     })
   },
 
-  onUserDataTap: function (e) {
-    wx.navigateTo({
-      url: '../userData/userData'
-    })
-  },
-
-  onDataVerTap: function (e) {
-    wx.navigateTo({
-      url: '../dataVer/dataVer',
-    })
-  },
-
-  onDataVerShow: function (e) {
-    this.setData({
-      dataverShow: true
-    })
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      dataverShow: false
-    })
+
   },
 
   /**
@@ -69,9 +49,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      dataverShow: false
-    })
+
   },
 
   /**

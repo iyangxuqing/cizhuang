@@ -1,0 +1,22 @@
+<view class="container" wx:if="{{ready}}">
+  <view class="cases">
+    <block wx:for="{{cases}}" wx:key="" wx:for-item="case">
+      <view class="case" catchtap="onCaseTap" data-id="{{case.id}}">
+        <view class="image">
+          <image src="{{imagesUrl + case.image}}"></image>
+        </view>
+        <view class="text">
+          <view class="title">{{case.subdistrict}}</view>
+          <view class="subTitle">{{case.houseAddress}}</view>
+          <view class="desc">{{case.desc}}</view>
+          <view class="text-foot">
+            <view class="time">{{case.time}}</view>
+            <view class="praise">
+              <image src="/images/icon/praise.png"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

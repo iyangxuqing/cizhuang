@@ -1,0 +1,65 @@
+page:before {
+  content: ' ';
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(http://122.226.60.90:8092/images/cizhuang/dongpeng/anli/s01xiangqing/s01.jpg) center 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.container {
+  height: 100%;
+  margin-top: 200rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+swiper {
+  height: 100%;
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #7d6d54;
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.list {
+  margin-top: 10rpx;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #c19408;
+  padding: 20rpx 0 20rpx 40rpx;
+  border-bottom: 2rpx dashed #ccc;
+}
+
+.time {
+  height: 48rpx;
+  line-height: 48rpx;
+}
+
+.desc {
+  font-size: 30rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.image {
+  width: 120rpx;
+  height: 120rpx;
+  padding: 10rpx;
+  margin-left: 20rpx;
+  flex-shrink: 0;
+}

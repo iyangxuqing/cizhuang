@@ -1,0 +1,20 @@
+<view class="container">
+  <view class="head">
+    <swiper class="swiper" indicator-dots="true">
+      <block wx:for="{{process.images}}" wx:key="" wx:for-item="image">
+        <swiper-item>
+          <image src="{{imagesUrl + image}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="body">
+    <view class="title">
+      <view class="title-line"></view>
+      <view class="title-text">{{title}}</view>
+      <view class="title-line"></view>
+    </view>
+    <view class="time">{{process.time}}</view>
+    <view class="desc">{{process.desc}}</view>
+  </view>
+</view>

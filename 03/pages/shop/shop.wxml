@@ -1,0 +1,51 @@
+<import src='/template/loading/loading.wxml' />
+<template is="loading" data="{{...loading}}" />
+
+<view class="container" wx:if="{{ready}}">
+
+  <view class="header">
+    <view class="shop-name">{{shop.name || '店铺名称'}}</view>
+    <view class="shop-logo">
+      <image src="{{shop.logo}}" mode="aspectFill" />
+    </view>
+  </view>
+
+  <view class="contacts">
+    <view class="row row-phone" catchtap="onPhoneTap">
+      <view class="icon">
+        <image src="/images/icon/phone.png" />
+      </view>
+      <view class="text">{{shop.phone || '联系电话'}}</view>
+      <view class="icon">
+        <image src="/images/icon/enter.png" />
+      </view>
+    </view>
+    <view class="row row-address" catchtap="onAddressTap">
+      <view class="icon">
+        <image src="/images/icon/map-pin.png" />
+      </view>
+      <view class="text">{{shop.address || '店铺地址'}}</view>
+      <view class="icon">
+        <image src="/images/icon/enter.png" />
+      </view>
+    </view>
+  </view>
+
+  <view class="shop-images">
+    <view class="shop-image">
+      <image src="{{shop.images[0] ? shop.images[0] + youImageMode : ''}}" mode="aspectFill" />
+    </view>
+    <view class="shop-thumbs">
+      <view class="shop-thumb">
+        <image src="{{shop.images[1] ? shop.images[1] + youImageMode : ''}}" mode="aspectFill" />
+      </view>
+      <view class="shop-thumb">
+        <image src="{{shop.images[2] ? shop.images[2] + youImageMode : ''}}" mode="aspectFill" />
+      </view>
+      <view class="shop-thumb">
+        <image src="{{shop.images[3] ? shop.images[3] + youImageMode : ''}}" mode="aspectFill" />
+      </view>
+    </view>
+  </view>
+  
+</view>

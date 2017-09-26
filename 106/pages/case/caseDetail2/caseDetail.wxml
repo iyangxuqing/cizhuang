@@ -1,0 +1,19 @@
+<view class="container" wx:if="{{ready}}">
+  <view class="case">
+    <view class="list">
+      <block wx:for="{{case.process}}" wx:key="" wx:for-index="pIndex">
+        <view class="item">
+          <view class="time">{{item.time}}</view>
+          <view class="desc"><text>{{item.desc}}</text></view>
+          <view class="images {{item.images.length<2 ? 'p1' : 'pn'}}">
+            <block wx:for="{{item.images}}" wx:key="" wx:for-item="image">
+              <view class="image" catchtap="onImageTap" data-pIndex="{{pIndex}}" data-index="{{index}}">
+                <image src="{{imagesUrl + image}}" />
+              </view>
+            </block>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

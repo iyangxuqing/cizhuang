@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="head">
+    <view class="logo">
+      <image src="{{logo}}"></image>
+    </view>
+    <view class="head-title">{{title}}</view>
+  </view>
+  <view class="body">
+    <view class="bigimage">
+      <image src="{{bigimage}}"></image>
+    </view>
+    <scroll-view class="srcol-image" scroll-x style="width: 100%">
+      <view class="image">
+        <block wx:for="{{srcolImage}}" wx:key="">
+          <view class="item">
+            <image src="{{item}}"></image>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="foot">
+  <view class="button">{{button}}</view>
+  </view>
+</view>

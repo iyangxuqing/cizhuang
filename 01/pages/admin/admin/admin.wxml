@@ -1,9 +1,4 @@
-<view class="rows">
-  <view class="row" catchtap="onAdminModelTap">样板房</view>
-  <view class="row" catchtap="onAdminAnliTap">身边案例</view>
-  <view class="row" catchtap="onAdminCouponTap">优惠券</view>
-  <view class="row" catchtap="onAdminShopTap">店铺信息</view>
-  <view class="row" catchtap="onUserDataTap">客户信息</view>
-  <view class="row" catchtap="onDataVerTap" wx:if="{{dataverShow}}">数据版本</view>
-</view>
-<view class="dataver-operate-area" catchlongpress="onDataVerShow"></view>
+<button catchtap="onAdminModelTap">样板房管理</button>
+<button catchtap="onAdminAnliTap" >身边案例管理</button>
+<button catchtap="onAdminCouponTap">优惠券管理</button>
+<button catchtap="onAdminShopTap">店铺信息管理</button>

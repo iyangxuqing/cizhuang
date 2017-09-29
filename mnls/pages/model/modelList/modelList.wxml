@@ -1,0 +1,28 @@
+<import src="/template/loading/loading.wxml" />
+<template is="loading" data="{{...loading}}" />
+
+<view class="container" wx:if="{{ready}}">
+  <view class="homeHeadImages">
+    <swiper autoplay="true" circular="true">
+      <block wx:for="{{homeHeadImages}}" wx:key="">
+        <swiper-item>
+          <image src="{{item ? item + youImageMode : ''}}" mode="aspectFill" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="homeSlogan">{{homeSlogan}}</view>
+  <view class="homeLogo">
+    <image src="{{homeLogo}}" mode="aspectFill" />
+  </view>
+  <view class="list models">
+    <block wx:for="{{models}}" wx:key="">
+      <view class="item model" data-id="{{item.id}}" catchtap="onItemTap">
+        <view class="item-thumb">
+          <image src="{{item.images[0] ? item.images[0]+ youImageMode : ''}}" mode="aspectFill"></image>
+        </view>
+        <view class="item-title">{{item.title}}</view>
+      </view>
+    </block>
+  </view>
+</view>

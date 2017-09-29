@@ -1,0 +1,15 @@
+<template name="tabbar">
+  <view class="tabbar tabs" wx:if="{{tabs}}">
+    <block wx:for="{{tabs}}" wx:key="">
+      <view class="tab {{item.active ? 'active' : ''}}" data-index="{{index}}" catchtap="{{onTabTap}}" wx:if="{{!item.hidden}}">
+        <view class="icon" wx:if="{{!item.active}}">
+          <image src="{{item.icon}}" />
+        </view>
+        <view class="icon" wx:if="{{item.active}}">
+          <image src="{{item.activeIcon}}" />
+        </view>
+        <view class="text">{{item.text}}</view>
+      </view>
+    </block>
+  </view>
+</template>

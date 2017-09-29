@@ -1,0 +1,50 @@
+<import src="/template/tabbar/tabbar.wxml" />
+<template is="tabbar" data="{{...tabbar}}" />
+
+<view class="container">
+  <view class="template template-1" wx:if="{{template=='1'}}">
+    <view class="c">123</view>
+    <view class="c">124</view>
+    <view class="c">125</view>
+    <view class="c">126</view>
+    <view class="c">127</view>
+    <view class="c">128</view>
+    <view class="c">129</view>
+    <view class="c">120</view>
+    <view class="c">12a</view>
+    <view class="c">12b</view>
+    <view class="c">12c</view>
+  </view>
+  <view class="template template-2" wx:if="{{template=='2'}}">
+    <view class="c">ABCD1</view>
+    <view class="c">ABCD2</view>
+    <view class="c">ABCD3</view>
+    <view class="c">ABCD4</view>
+    <view class="c">ABCD5</view>
+    <view class="c">ABCD6</view>
+    <view class="c">ABCD7</view>
+    <view class="c">ABCD8</view>
+    <view class="c">ABCD9</view>
+    <view class="c">ABCD10</view>
+    <view class="c">ABCD11</view>
+  </view>
+  <view class="template template-3" wx:if="{{template=='3'}}">
+    <view class="c">_+_+_+_+</view>
+    <view class="c">_+_+_+_+</view>
+    <view class="c">_+_+_+_+</view>
+    <view class="c">_+_+_+_+</view>
+  </view>
+  <view class="template template-4" wx:if="{{template=='4'}}">
+    <view class="c">H-HH-H--HH-HH1</view>
+    <view class="c">H-HH-H--HH-HH2</view>
+    <view class="c">H-HH-H--HH-HH3</view>
+    <view class="c">H-HH-H--HH-HH4</view>
+    <view class="c">H-HH-H--HH-HH5</view>
+    <view class="c">H-HH-H--HH-HH6</view>
+    <view class="c">H-HH-H--HH-HH7</view>
+    <view class="c">H-HH-H--HH-HH8</view>
+    <view class="c">H-HH-H--HH-HH9</view>
+    <view class="c">H-HH-H--HH-HH10</view>
+    <view class="c">H-HH-H--HH-HH11</view>
+  </view>
+</view>

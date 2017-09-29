@@ -1,0 +1,5 @@
+<view class="datavers">
+  <block wx:for="{{datavers}}" wx:key="">
+    <view class="dataver {{item.active ? 'active' : ''}}" data-id="{{item.id}}" catchtap="onDataVerTap">{{item.name}}</view>
+  </block>
+</view>

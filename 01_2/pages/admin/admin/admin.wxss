@@ -1,0 +1,24 @@
+.rows {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  height: 110rpx;
+  padding: 0 40rpx;
+  letter-spacing: 4rpx;
+  background-image: url(http://image-1253299728.cossh.myqcloud.com/icon/enter.png);
+  background-repeat: no-repeat;
+  background-size: 48rpx;
+  background-position: 620rpx 50%;
+  border-bottom: 1px solid #ddd;
+}
+
+.dataver-operate-area {
+  position: absolute;
+  width: 100%;
+  height: 400rpx;
+  bottom: 0;
+}

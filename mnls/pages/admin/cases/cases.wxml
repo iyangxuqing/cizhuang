@@ -1,0 +1,16 @@
+<import src="/template/listRowsEditor/listRowsEditor.wxml" />
+
+<view class="container" wx:if="{{ready}}">
+
+  <view class="anli-add">
+    <view class="anli-add-text">新增身边案例</view>
+    <view class="anli-add-icon" catchtap="onAnliAdd">
+      <image src="/images/icon/delete.png" />
+    </view>
+  </view>
+
+  <view class="anlis">
+    <template is="listRowsEditor" data="{{...listRowsEditor, youImageMode}}" />
+  </view>
+
+</view>

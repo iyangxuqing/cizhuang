@@ -1,0 +1,22 @@
+page {
+  font-size: 32rpx;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+text {
+  display: block;
+}
+
+view {
+  box-sizing: border-box;
+}

@@ -1,17 +1,25 @@
 import { http } from 'http.js'
 
 function login() {
-  wx.login({
-    success: function (res) {
-      http.get({
-        url: 'cz/user.php?m=login',
-        data: { code: res.code }
-      }).then(function (res) {
-        if (res.errno === 0) {
-          wx.setStorageSync('token', res.token)
-        }
-      })
-    }
+  return new Promise(function (resolve, reject) {
+    wx.login({
+      success: function (res) {
+        http.get({
+          url: 'cz/user.php?m=login',
+          data: { code: res.code }
+        }).then(function (res) {
+          if (res.errno === 0) {
+            wx.setStorageSync('token', res.token)
+            resolve()
+          } else {
+            reject(res)
+          }
+        })
+      },
+      fail: function (res) {
+        reject(res)
+      }
+    })
   })
 }
 
@@ -73,27 +81,10 @@ function mobileCodeVerify(mobile, code) {
   })
 }
 
-function getUserData() {
-  return new Promise(function (resolve, reject) {
-    http.get({
-      url: 'cz/userData.php?m=get',
-    }).then(function (res) {
-      if (res.errno === 0) {
-        resolve(res.users)
-      } else {
-        reject(res)
-      }
-    }).catch(function (res) {
-      reject(res)
-    })
-  })
-}
-
 export var User = {
   login: login,
   getUser: getUser,
   setUser: setUser,
   mobileCodeRequest: mobileCodeRequest,
   mobileCodeVerify: mobileCodeVerify,
-  getUserData: getUserData,
 }

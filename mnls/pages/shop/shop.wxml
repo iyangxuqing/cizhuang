@@ -32,20 +32,20 @@
   </view>
 
   <view class="shop-images">
-    <view class="shop-image">
+    <view class="shop-image" data-index="0" catchtap="onShopImageTap">
       <image src="{{shop.images[0] ? shop.images[0] + youImageMode : ''}}" mode="aspectFill" />
     </view>
     <view class="shop-thumbs">
-      <view class="shop-thumb">
+      <view class="shop-thumb" data-index="1" catchtap="onShopImageTap">
         <image src="{{shop.images[1] ? shop.images[1] + youImageMode : ''}}" mode="aspectFill" />
       </view>
-      <view class="shop-thumb">
+      <view class="shop-thumb" data-index="2" catchtap="onShopImageTap">
         <image src="{{shop.images[2] ? shop.images[2] + youImageMode : ''}}" mode="aspectFill" />
       </view>
-      <view class="shop-thumb">
+      <view class="shop-thumb" data-index="3" catchtap="onShopImageTap">
         <image src="{{shop.images[3] ? shop.images[3] + youImageMode : ''}}" mode="aspectFill" />
       </view>
     </view>
   </view>
-  
+
 </view>

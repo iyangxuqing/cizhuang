@@ -1,0 +1,56 @@
+.container {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.processes {
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+}
+
+.process {
+  padding-bottom: 20rpx;
+}
+
+.process-time {
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 10rpx;
+  margin-bottom: 20rpx;
+  background-color: #f2f2f2;
+}
+
+.process-descs {
+  font-size: 30rpx;
+  line-height: 1.5;
+}
+
+.process-images {
+  display: flex;
+  min-height: 40rpx;
+}
+
+.process-image {
+  margin: 20rpx 0;
+}
+
+.p1 .process-image {
+  width: 100%;
+  height: 450rpx;
+  margin: 20rpx 0;
+}
+
+.process-images.pn {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pn .process-image {
+  width: 210rpx;
+  height: 210rpx;
+}
+
+.pn .process-image:nth-of-type(3n+2) {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}

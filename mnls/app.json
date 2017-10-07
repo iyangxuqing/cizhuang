@@ -15,7 +15,7 @@
     "pages/admin/coupons/coupons",
     "pages/admin/coupon/coupon",
     "pages/admin/shop/shop",
-    "pages/admin/userData/userData"
+    "pages/admin/customer/customer"
   ],
   "window": {
     "backgroundTextStyle": "dark",

@@ -12,20 +12,35 @@ Page({
     youImageMode: app.youImageMode,
   },
 
+  onShopImageTap: function (e) {
+    let index = e.currentTarget.dataset.index
+    let images = this.data.shop.images
+    // let urls = images.map(function (image) {
+    //   return image + app.youImageMode
+    // })
+    let urls = images
+    wx.previewImage({
+      current: urls[index],
+      urls: urls,
+    })
+  },
+
   onShopLogoTap: function (e) {
-    let time = e.timeStamp
-    let last = this.shopLogoTapTime
-    this.shopLogoTapTime = time
-    if (last >= time - 3000) {
-      this.shopLogoTapCount++
-    } else {
-      this.shopLogoTapCount = 1
-    }
-    if (this.shopLogoTapCount >= 3) {
-      this.shopLogoTapCount = 0
-      wx.navigateTo({
-        url: '/pages/admin/admin/admin',
-      })
+    if (app.user.role == 'admin') {
+      let time = e.timeStamp
+      let last = this.shopLogoTapTime
+      this.shopLogoTapTime = time
+      if (last >= time - 3000) {
+        this.shopLogoTapCount++
+      } else {
+        this.shopLogoTapCount = 1
+      }
+      if (this.shopLogoTapCount >= 3) {
+        this.shopLogoTapCount = 0
+        wx.navigateTo({
+          url: '/pages/admin/admin/admin',
+        })
+      }
     }
   },
 

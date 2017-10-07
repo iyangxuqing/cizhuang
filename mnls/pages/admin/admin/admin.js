@@ -33,7 +33,7 @@ Page({
 
   onUserDataTap: function (e) {
     wx.navigateTo({
-      url: '../userData/userData'
+      url: '../customer/customer'
     })
   },
 

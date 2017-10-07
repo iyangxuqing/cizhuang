@@ -8,6 +8,19 @@ Page({
     youImageMode: app.youImageMode,
   },
 
+  onModelImageTap: function (e) {
+    let index = e.currentTarget.dataset.index
+    let images = this.data.model.images
+    // let urls = images.map(function (image) {
+    //   return image + app.youImageMode
+    // })
+    let urls = images
+    wx.previewImage({
+      current: urls[index],
+      urls: urls,
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -15,14 +28,16 @@ Page({
     let id = options.id
     Models.getModels().then(function (models) {
       let index = -1
+      let model = {}
       for (let i in models) {
         if (models[i].id == id) {
+          model = models[i]
           index = i
           break
         }
       }
       this.setData({
-        models: models,
+        model: model,
         current: index,
       })
     }.bind(this))

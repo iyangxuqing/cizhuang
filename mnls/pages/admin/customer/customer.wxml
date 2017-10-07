@@ -1,0 +1,17 @@
+<view class="customers">
+  <block wx:for="{{customers}}" wx:key="">
+    <view class="customer">
+      <view class="left">
+        <view class="avatar">
+          <image src="{{item.avatarUrl}}" />
+        </view>
+        <view class="nickName">{{item.nickName}}</view>
+      </view>
+      <view class="right">
+        <view class="address">{{item.address_district + item.address_detail}}</view>
+        <view class="phone {{item.mobileVerified==1 ? 'verified' : ''}}">{{item.mobileNumber}}</view>
+        <view class="time">{{item.time}}</view>
+      </view>
+    </view>
+  </block>
+</view>

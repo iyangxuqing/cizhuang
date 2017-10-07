@@ -12,12 +12,12 @@ Page({
     let imageIndex = e.currentTarget.dataset.imageIndex
     let processIndex = e.currentTarget.dataset.processIndex
     let images = this.data.anli.process[processIndex].images
-    let urls = images.map(function (image) {
-      return image + app.youImageMode
-    })
-    let current = images[imageIndex] + app.youImageMode
+    // let urls = images.map(function (image) {
+    //   return image + app.youImageMode
+    // })
+    let urls = images
     wx.previewImage({
-      current: current,
+      current: urls[imageIndex],
       urls: urls,
     })
   },

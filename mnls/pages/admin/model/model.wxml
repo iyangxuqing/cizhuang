@@ -9,7 +9,7 @@
   </view>
   <view class="model-descs">
     <view class="model-desc">
-      <textarea value="{{model.descs[descIndex] || ''}}" placeholder="输入图片描述" data-current="{{current}}" bindinput="onDescsBlur" />
+      <textarea value="{{model.descs[descIndex] || ''}}" placeholder="输入图片描述" data-current="{{current}}" bindblur="onDescsBlur" />
     </view>
   </view>
 </view>

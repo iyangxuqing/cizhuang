@@ -9,7 +9,7 @@ function getModels(options = {}) {
       resolve(app.models)
     } else {
       http.get({
-        url: 'cz/models2.php?m=get',
+        url: 'cz/models_v2.php?m=get',
       }).then(function (res) {
         if (res.errno === 0) {
           let models = res.models
@@ -62,7 +62,7 @@ function setModel(model) {
 
     if (app.user.role == 'admin') {
       http.post({
-        url: 'cz/models2.php?m=set',
+        url: 'cz/models_v2.php?m=set',
         data: {
           id: model.id,
           title: model.title,
@@ -106,7 +106,7 @@ function delModel(model) {
   /* server start */
   if (app.user.role == 'admin') {
     http.get({
-      url: 'cz/models2.php?m=del',
+      url: 'cz/models_v2.php?m=del',
       data: model
     })
   }
@@ -121,7 +121,7 @@ function sortModel(models) {
         if (i != j) {
           if (app.user.role == 'admin') {
             http.get({
-              url: 'cz/models2.php?m=set',
+              url: 'cz/models_v2.php?m=set',
               data: { id, sort: i }
             })
           }

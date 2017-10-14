@@ -9,12 +9,13 @@ function getModels(options = {}) {
       resolve(app.models)
     } else {
       http.get({
-        url: 'cz/models.php?m=get',
+        url: 'cz/models2.php?m=get',
       }).then(function (res) {
         if (res.errno === 0) {
           let models = res.models
           for (let i in models) {
             models[i].images = JSON.parse(models[i].images)
+            models[i].descs = JSON.parse(models[i].descs)
           }
           app.models = models
           resolve(models)
@@ -60,9 +61,15 @@ function setModel(model) {
     }
 
     if (app.user.role == 'admin') {
-      http.get({
-        url: 'cz/models.php?m=set',
-        data: model
+      http.post({
+        url: 'cz/models2.php?m=set',
+        data: {
+          id: model.id,
+          title: model.title,
+          images: JSON.stringify(model.images),
+          descs: JSON.stringify(model.descs),
+          sort: model.sort
+        }
       }).then(function (res) {
         if (res.errno === 0) {
           resolve(res)
@@ -99,7 +106,7 @@ function delModel(model) {
   /* server start */
   if (app.user.role == 'admin') {
     http.get({
-      url: 'cz/models.php?m=del',
+      url: 'cz/models2.php?m=del',
       data: model
     })
   }
@@ -114,7 +121,7 @@ function sortModel(models) {
         if (i != j) {
           if (app.user.role == 'admin') {
             http.get({
-              url: 'cz/models.php?m=set',
+              url: 'cz/models2.php?m=set',
               data: { id, sort: i }
             })
           }

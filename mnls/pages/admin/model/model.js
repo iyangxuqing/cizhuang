@@ -8,6 +8,7 @@ Page({
   hasChanged: false,
 
   data: {
+    descIndex: 0,
     youImageMode: app.youImageMode,
   },
 
@@ -23,9 +24,12 @@ Page({
   },
 
   onDescsBlur: function (e) {
-    let descs = e.detail.value
-    let oldDescs = this.data.model.descs
-    if (descs != oldDescs) {
+    let desc = e.detail.value
+    let descs = this.data.model.descs
+    let descIndex = this.data.descIndex
+    let oldDesc = descs[descIndex]
+    if (desc != oldDesc) {
+      descs[descIndex] = desc
       this.setData({
         'model.descs': descs
       })
@@ -40,13 +44,19 @@ Page({
     this.hasChanged = true
   },
 
+  onSwiperChanged: function (current) {
+    this.setData({
+      descIndex: current
+    })
+  },
+
   loadModel: function (options = {}) {
     let id = options.id
     let model = {
       id: '',
       title: '',
       images: [],
-      descs: '',
+      descs: [],
       sort: 9999
     }
     if (id) {
@@ -68,9 +78,10 @@ Page({
   onLoad: function (options) {
     let model = this.loadModel(options)
     this.swiperImagesEditor = new SwiperImagesEditor({
+      maxImagesLength: 9,
       images: model.images,
       onImagesChanged: this.onImagesChanged,
-      maxImagesLength: 9,
+      onSwiperChanged: this.onSwiperChanged,
     })
     this.setData({
       model: model,

@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="anli">
+    <view class="processes">
+      <block wx:for="{{anli.process}}" wx:key="" wx:for-index="processIndex">
+        <view class="process">
+          <view class="process-time">{{item.time}}</view>
+          <view class="process-descs"><text>{{item.descs}}</text></view>
+          <view class="process-images {{item.images.length<2 ? 'p1' : 'pn'}}">
+            <block wx:for="{{item.images}}" wx:key="" wx:for-item="image">
+              <view class="process-image" catchtap="onImageTap" data-process-index="{{processIndex}}" data-image-index="{{index}}">
+                <image src="{{image ? image + youImageMode : ''}}" mode="aspectFill" />
+              </view>
+            </block>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

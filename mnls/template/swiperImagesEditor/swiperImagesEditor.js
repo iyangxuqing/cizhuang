@@ -48,6 +48,10 @@ let methods = {
         'swiperImagesEditor.delImageIndex': -1
       })
     }, 5000)
+  },
+
+  onSwiperChanged: function (e) {
+    this.onSwiperChanged && this.onSwiperChanged(e.detail.current)
   }
 
 }
@@ -58,6 +62,7 @@ export class SwiperImagesEditor {
     this.delImageTimer = null
     this.imagesChanged = options.imagesChanged || false
     this.onImagesChanged = options.onImagesChanged || null
+    this.onSwiperChanged = options.onSwiperChanged || null
 
     let page = getCurrentPages().pop()
     let swiperImagesEdiotr = {

@@ -1,0 +1,10 @@
+<import src="/template/swiperItemsEditor/swiperItemsEditor.wxml" />
+
+<view class="model">
+  <view class="model-title">
+    <input value="{{model.title}}" placeholder="输入样板房名称" bindblur="onTitleBlur" />
+  </view>
+  <view class="model-items">
+    <template is="swiper-items-editor" data="{{...swiperItemsEditor, youImageMode}}" />
+  </view>
+</view>

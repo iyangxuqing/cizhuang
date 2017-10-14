@@ -1,0 +1,157 @@
+.anli {
+  padding: 30rpx;
+}
+
+.subdistrict {
+  display: flex;
+  align-items: center;
+  height: 120rpx;
+  font-size: 1.3em;
+  padding-left: 20rpx;
+  background-color: #eee;
+  margin-bottom: 2rpx;
+}
+
+.houseAddress {
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+  padding-left: 20rpx;
+  background-color: #eee;
+  margin-bottom: 2rpx;
+}
+
+.process-add {
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+  background-color: #eee;
+  margin-bottom: 30rpx;
+}
+
+.process-add-text {
+  flex-grow: 1;
+  padding-left: 20rpx;
+}
+
+.process-add-icon {
+  width: 100rpx;
+  height: 100rpx;
+  flex-shrink: 0;
+  padding: 30rpx;
+  margin-right: -10rpx;
+  transform: rotate(45deg);
+}
+
+input {
+  width: 100%;
+}
+
+.item + .item{
+  margin-top: 20rpx;
+}
+
+.item-head {
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  background-color: #eee;
+  margin-bottom: 20rpx;
+}
+
+.process-time {
+  flex-grow: 1;
+  padding: 20rpx 0;
+  padding-left: 20rpx;
+}
+
+.process-del {
+  width: 100rpx;
+  height: 100rpx;
+  flex-shrink: 0;
+  padding: 30rpx;
+  margin-right: -10rpx;
+}
+
+.process-descs {
+  padding: 20rpx 0;
+  padding-left: 20rpx;
+}
+
+text.empty {
+  color: #888;
+}
+
+.process-images {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image {
+  position: relative;
+  width: 210rpx;
+  height: 210rpx;
+  margin: 20rpx 0;
+}
+
+.image:nth-of-type(3n+2) {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.image.image-camera {
+  padding: 50rpx;
+  border: 1px solid #ddd;
+}
+
+.image-del {
+  position: absolute;
+  width: 100rpx;
+  height: 100rpx;
+  top: -20rpx;
+  right: -20rpx;
+  padding: 30rpx;
+  background-color: rgba(255, 255, 255, 0.5);
+  background-clip: content-box;
+}
+
+.editing {
+  opacity: 0;
+}
+
+.editor {
+  position: absolute;
+  width: 690rpx;
+  padding: 20rpx 0;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.editor.time {
+  width: 500rpx;
+  padding-left: 20rpx;
+  background-color: #f2f2f2;
+}
+
+.editor.descs {
+  padding-left: 20rpx;
+}
+
+textarea {
+  width: 100%;
+}
+
+.devtools textarea {
+  margin-top: -2rpx;
+  margin-left: -2rpx;
+}
+
+.ios textarea {
+  margin-top: -14rpx;
+  margin-left: -10rpx;
+}
+
+.android textarea {
+  margin-top: 4rpx;
+  margin-left: 0rpx;
+}

@@ -5,6 +5,7 @@ let app = getApp()
 Page({
 
   data: {
+    descIndex: 0,
     youImageMode: app.youImageMode,
   },
 
@@ -18,6 +19,12 @@ Page({
     wx.previewImage({
       current: urls[index],
       urls: urls,
+    })
+  },
+
+  onSwiperChanged: function(e){
+    this.setData({
+      descIndex: e.detail.current
     })
   },
 

@@ -8,6 +8,8 @@
     <template is="swiper-images-editor" data="{{...swiperImagesEditor, youImageMode}}" />
   </view>
   <view class="model-descs">
-    <textarea value="{{model.descs}}" placeholder="输入描述文字..." bindblur="onDescsBlur"></textarea>
+    <view class="model-desc">
+      <textarea value="{{model.descs[descIndex] || ''}}" placeholder="输入图片描述" data-current="{{current}}" bindinput="onDescsBlur" />
+    </view>
   </view>
 </view>

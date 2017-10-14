@@ -1,0 +1,29 @@
+<template name="swiper-items-editor">
+  <view class="swiper-items-editor">
+    <swiper indicator-dots="{{items.length}}">
+      <block wx:for="{{items}}" wx:key="">
+        <swiper-item>
+          <view class="swiper-image" data-index="{{index}}" catchtap="{{onImageTap}}" catchlongpress="{{onImageLongPress}}">
+            <view class="swiper-image-del" data-index="{{index}}" catchtap="{{onImageDel}}" wx:if="{{delImageIndex==index}}">
+              <image src="/images/icon/delete.png" />
+            </view>
+            <image src="{{item.image ? item.image + youImageMode : ''}}" mode="aspectFill" />
+          </view>
+          <view class="swiper-desc" data-index="{{index}}">
+            <textarea value="{{item.desc}}" placeholder="输入图片描述..." />
+          </view>
+        </swiper-item>
+      </block>
+      <block wx:if="{{images.length < maxImagesLength}}">
+        <swiper-item>
+          <view class="swiper-image swiper-image-add" data-index="-1" catchtap="{{onImageTap}}">
+            <image src="/images/icon/camera.png" />
+          </view>
+          <view class="swiper-desc" data-index="-1">
+            <textarea value="" placeholder="输入图片描述..." />
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</template>

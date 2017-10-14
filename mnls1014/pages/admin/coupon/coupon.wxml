@@ -1,0 +1,18 @@
+<view class="coupon">
+  <view class="coupon-label">标题</view>
+  <view class="coupon-value coupon-value-title">
+    <input value="{{coupon.title}}" placeholder="输入优惠券标题" data-id="{{coupon.id}}" bindblur="onTitleBlur" maxlength="10" />
+  </view>
+  <view class="coupon-label coupon-value-descs">说明</view>
+  <view class="coupon-value">
+    <input value="{{coupon.descs}}" placeholder="输入一句话说明" data-id="{{coupon.id}}" bindblur="onDescsBlur" maxlength="30" />
+  </view>
+  <view class="coupon-label">备注</view>
+  <view class="coupon-value coupon-value-notes">
+    <input value="{{coupon.notes}}" placeholder="输入使用备注" data-id="{{coupon.id}}" bindblur="onNotesBlur" maxlength="16" />
+  </view>
+  <view class="coupon-label">图示</view>
+  <view class="coupon-image {{coupon.image ? '' : 'empty'}}" catchtap="onImageTap">
+    <image src="{{coupon.image ? coupon.image + youImageMode : ''}}" mode="aspectFill" />
+  </view>
+</view>

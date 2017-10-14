@@ -32,7 +32,7 @@ swiper.swiper-images {
 }
 
 .model-images {
-  height: 480rpx;
+  height: 560rpx;
   margin-bottom: 30rpx;
 }
 
